@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nomination</title>
+    <div th:insert="~{includes :: header}"></div>
+</head>
+<body class="sb-nav-fixed">
+<div th:insert="~{includes :: topNav}"></div>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <div th:insert="~{menu :: eventMenu}"></div>
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <!-- Dashboard Content -->
+                <div class="container w-60 mt-5 mb-4">
+                    <div class="row">
+                        <div class="card border-0 shadow">
+                            <div class="card-header p-3">
+                                <h5 class="text-center">Events Form</h5>
+                            </div>
+                            <!--Form-->
+                            <div class="card-body p-3">
+                                <form method="post" th:object="${eventObj}" th:action="@{/saveDetails}" enctype="multipart/form-data" class="mt-3">
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label for="eventName" class="form-label">Event Name </label>
+                                            <input type="text" th:field="*{eventName}" class="form-control" id="eventName"/>
+                                        </div>
+                                        <div class="col">
+                                            <label for="eventDescription" class="form-label">Event Description</label>
+                                            <input type="text" th:field="*{eventDescription}" class="form-control" id="eventDescription"/>
+                                        </div>
+                                        <div class="col">
+                                            <label for="imageFile" class="form-label">Image </label>
+                                            <input type="file" name="imageFile" th:field="*{imageName}" class="form-control" id="imageFile"/>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="eventDate" class="form-label">Date</label>
+                                        <input type="datetime-local" th:field="*{eventDate}" id="eventDate" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                        <label for="location" class="form-label">Location</label>
+                                        <input type="text" th:field="*{location}" class="form-control" id="location"/>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-6 offset-md-5">
+                                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div th:insert="~{includes :: footer}"></div>
+    </div>
+</div>
+<div th:insert="~{includes :: script}"></div>
+<script>
+    $(function() {
+        var currentTime = new Date();
+        currentTime.setSeconds(0);
+        $('#reporting-date').datetimepicker({
+            format: 'Y-m-d H:i',
+            minDate: new Date(),
+            maxTime: currentTime,
+            step: 1
+        });
+    });
+</script>
+</body>
+</html>
