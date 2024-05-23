@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -29,6 +30,7 @@ public class Event {
     @NotEmpty
     @NotBlank
     @Column(nullable = false, length = 200)
+    @NotNull
     private String imageName;
 
     @Temporal(TemporalType.TIMESTAMP)

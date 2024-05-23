@@ -1,7 +1,6 @@
 package com.rishabdebnath.lisys.controller;
 
 import com.rishabdebnath.lisys.model.Event;
-import com.rishabdebnath.lisys.repository.EventRepository;
 import com.rishabdebnath.lisys.service.EventService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
@@ -21,20 +19,17 @@ import java.util.Optional;
 @SessionAttributes({"login"})
 public class EventController {
     @Autowired
-    private EventRepository eventRepository;
-    @Autowired
     private EventService eventService;
 
     @PostMapping("/saveDetails")
     public String saveEvent(@Valid @ModelAttribute(name = "eventObj") Event event,
                             BindingResult br,
-                            @RequestParam("imageFile") MultipartFile imageFile,
                             RedirectAttributes redirectAttributes) throws ParseException, IOException {
         if (br.hasErrors()) {
             redirectAttributes.addFlashAttribute("error", br.getFieldError().getDefaultMessage());
             return "redirect:/eventsForm";
         } else {
-            eventService.saveDetails(event, imageFile);
+            eventService.saveDetails(event);
             return "redirect:/eventList";
         }
     }
@@ -67,9 +62,8 @@ public class EventController {
 
     @PostMapping("/update")
     public String updateEvent(@RequestParam("id") Long id,
-                              @ModelAttribute("event") Event event,
-                              @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
-        eventService.updateEvent(event, id, imageFile);
+                              @ModelAttribute("event") Event event) throws IOException {
+        eventService.updateEvent(event, id);
         return "redirect:/eventList";
     }
 
