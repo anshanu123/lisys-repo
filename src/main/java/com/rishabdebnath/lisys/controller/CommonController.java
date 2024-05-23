@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CommonController {
 
-    @GetMapping("/aboutUs")
+    @GetMapping("/index")
     public String showAboutUsPage() {
-        return "AboutUs";
+        return "Index";
     }
 
 }
