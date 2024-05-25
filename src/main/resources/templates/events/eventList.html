@@ -13,9 +13,11 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
+                <!-- Dashboard Content -->
                 <div class="card">
                     <div class="card-body">
                         <div class="container mt-6">
+                            <!-- Check for error parameter and display error message -->
                             <div th:if="${param.error}">
                                 <div class="alert alert-danger" role="alert">
                                     Event not found.
@@ -26,9 +28,9 @@
                                 <tr>
                                     <th scope="col">Event Name</th>
                                     <th scope="col">Event Description</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col">Event Date</th>
                                     <th scope="col">Location</th>
-                                    <th scope="col">Image</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                                 </thead>
@@ -39,7 +41,7 @@
                                     <td th:text="${n.eventDate}"></td>
                                     <td th:text="${n.location}"></td>
                                     <td>
-                                        <img th:src="@{/uploads/ + ${n.imageName}}" alt="Event Image" width="100">
+                                        <img th:src="@{/uploads/{imageName}(imageName=${n.imageName})}" alt="Event Image" width="100">
                                     </td>
                                     <td>
                                         <a class="btn btn-sm btn-primary mx-2" th:href="@{/edit/{id}(id=${n.eventId})}">Edit</a>

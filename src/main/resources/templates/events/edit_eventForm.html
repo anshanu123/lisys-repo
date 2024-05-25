@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Dashboard</title>
+    <title>Edit Event</title>
     <div th:insert="~{includes :: header}"></div>
 </head>
 <body class="sb-nav-fixed">
@@ -16,45 +16,41 @@
                 <!-- Dashboard Content -->
                 <div class="container p-1 w-50 mt-5 mb-5">
                     <div class="row">
-
                         <div class="card border-0 shadow">
                             <div class="card-header p-3">
-                                <h5 class="text-center">Edit Events</h5>
+                                <h5 class="text-center">Edit Event</h5>
                             </div>
                             <!--Form-->
                             <div class="card-body p-3">
                                 <form th:action="@{/update(id=${event.eventId})}" th:object="${event}" method="post" enctype="multipart/form-data">
-<!--                                    <input type="hidden" name="id" th:field="${event.eventId}" />-->
-
                                     <div class="row mb-3">
                                         <div class="col">
-                                            <label for="eventName" class="form-label">Event Name </label> <input
-                                                type="text" th:field="*{eventName}" class="form-control"
-                                                id="eventName"/>
+                                            <label for="eventName" class="form-label">Event Name</label>
+                                            <input type="text" th:field="*{eventName}" class="form-control" id="eventName"/>
                                         </div>
                                         <div class="col">
-                                            <label for="eventDescription" class="form-label">Event Description</label> <input
-                                                type="text" th:field="*{eventDescription}" class="form-control"
-                                                id="eventDescription"/>
-                                        </div>
-                                        <div class="col">
-                                            <label for="imageName" class="form-label">Event Description</label>
-                                            <input type="text" th:field="*{imageName}" class="form-control" id="imageName"/>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="eventDate" class="form-label">Date</label>
-                                            <input type="datetime-local" th:field="*{eventDate}" id="eventDate"
-                                                   class="form-control">
-                                        </div>
-
-                                        <div class="col">
-                                            <label for="location" class="form-label">Location</label> <input
-                                                type="text" th:field="*{location}" class="form-control"
-                                                id="location"/>
+                                            <label for="eventDescription" class="form-label">Event Description</label>
+                                            <input type="text" th:field="*{eventDescription}" class="form-control" id="eventDescription"/>
                                         </div>
                                     </div>
-
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label for="imageName" class="form-label">Current Image</label>
+                                            <input type="text" th:field="*{imageName}" class="form-control" id="imageName" readonly/>
+                                        </div>
+                                        <div class="col">
+                                            <label for="imageFile" class="form-label">Upload New Image</label>
+                                            <input type="file" name="imageFile" class="form-control" id="imageFile"/>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="eventDate" class="form-label">Date</label>
+                                        <input type="datetime-local" th:field="*{eventDate}" id="eventDate" class="form-control"/>
+                                    </div>
+                                    <div class="col mb-3">
+                                        <label for="location" class="form-label">Location</label>
+                                        <input type="text" th:field="*{location}" class="form-control" id="location"/>
+                                    </div>
                                     <div class="card-footer">
                                         <div class="container">
                                             <div class="row">
@@ -74,10 +70,8 @@
         <div th:insert="~{includes :: footer}"></div>
     </div>
 </div>
-</div>
 <div th:insert="~{includes :: script}"></div>
 <script>
-
     $(function() {
         var currentTime = new Date();
         currentTime.setSeconds(0);
