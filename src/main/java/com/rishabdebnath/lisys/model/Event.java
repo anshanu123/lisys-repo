@@ -27,10 +27,7 @@ public class Event {
     @Column(length = 200, nullable = false, columnDefinition = "TEXT")
     private String eventDescription;
 
-    @NotEmpty
-    @NotBlank
-    @Column(nullable = false, length = 200)
-    @NotNull
+    @Column(nullable = true, length = 200)
     private String imageName;
 
     @Temporal(TemporalType.TIMESTAMP)

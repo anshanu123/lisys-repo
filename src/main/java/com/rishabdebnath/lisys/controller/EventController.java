@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
@@ -24,12 +25,13 @@ public class EventController {
     @PostMapping("/saveDetails")
     public String saveEvent(@Valid @ModelAttribute(name = "eventObj") Event event,
                             BindingResult br,
+                            @RequestParam("file") MultipartFile file,
                             RedirectAttributes redirectAttributes) throws ParseException, IOException {
         if (br.hasErrors()) {
             redirectAttributes.addFlashAttribute("error", br.getFieldError().getDefaultMessage());
             return "redirect:/eventsForm";
         } else {
-            eventService.saveDetails(event);
+            eventService.saveDetails(event, file);
             return "redirect:/eventList";
         }
     }
@@ -62,8 +64,9 @@ public class EventController {
 
     @PostMapping("/update")
     public String updateEvent(@RequestParam("id") Long id,
-                              @ModelAttribute("event") Event event) throws IOException {
-        eventService.updateEvent(event, id);
+                              @ModelAttribute("event") Event event,
+                              @RequestParam("file") MultipartFile file) throws IOException {
+        eventService.updateEvent(event, id, file);
         return "redirect:/eventList";
     }
 
