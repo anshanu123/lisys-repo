@@ -17,7 +17,6 @@ import java.util.UUID;
 
 @Service
 public class EventService {
-//    private static final String UPLOAD_DIR = "uploads/";
 
     @Value("${file.upload-dir}")
     private String uploadDir;
@@ -62,5 +61,3 @@ public class EventService {
         eventRepository.deleteById(id);
     }
 }
-
-
