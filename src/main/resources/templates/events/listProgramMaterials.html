@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List of Program Materials</title>
+    <div th:insert="~{includes :: header}"></div>
+</head>
+<body class="sb-nav-fixed">
+<div th:insert="~{includes :: topNav}"></div>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <div th:insert="~{menu :: eventMenu}"></div>
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="container py-3 mt-5 mb-4">
+                    <div class="card">
+                        <div class="card-header p-3">
+                            <h5>Program Materials</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Sl No.</th>
+                                        <th scope="col">Event ID</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="p, iterationStatus : ${materials}">
+                                        <td th:text="${iterationStatus.count}"></td>
+                                        <td th:text="${p.eventId}"></td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <a th:href="@{/viewProgramMaterial/{id}(id=${p.id})}" class="btn btn-sm btn-primary">View</a>
+                                                </div>
+                                                <div class="col-3">
+                                                    <a th:href="@{/deleteProgramMaterial/{id}(id=${p.id})}" class="btn btn-sm btn-danger">Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Add button for redirecting to upload material page -->
+                        <div class="card-footer">
+                            <a th:href="@{/uploadProgramMaterials}" class="btn btn-primary">Upload Material</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>
