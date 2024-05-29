@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style3.css">
+</head>
+<body>
+<div class="testimonials-container">
+    <div class="inner">
+        <div class="row">
+            <div class="col">
+            <div class="testimonial">
+                <!-- <img src="/team1.png" alt=""> -->
+                <div class="name">Hencilla D'Souza</div>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>
+                    Outstanding Trekking Experience with Camp India. It was an absolute blast, thanks to their team of fun-loving guides. Well-planned itinerary, experienced guides, new discoveries, unforgettable adventure filled with stunning landscapes, waterfalls, incredible people, and a deep respect for the environment.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+            <div class="testimonial">
+                <!-- <img src="/team2.png" alt=""> -->
+                <div class="name">Vrishali Kulkarni</div>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>
+                    My first treck was with Camp India, it was Gupt Bhimashankar. Very mesmerizing treck it was, all the members of camp India are very helpful, co-operative.Thank you Dr. Sumit for leading the camp. Thank you Pramila, Lokesh and Samruddhi.And last Siddharth your team is best thank you 🙏
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+            <div class="testimonial">
+                <!-- <img src="/team3.png" alt=""> -->
+                <div class="name">Astro Roamer</div>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>
+                    Enjoyed a weekend away in the Koyna widlife sanctuary! Camping, tent stay, stargazing, boat ride on the gorgeous Koyna river, a walk through the tiger reserve  and uphill trek to reach Vasota fort to a breathtaking viewpoint over the Sahyadri mountain range was really memorable.
+                    Learned about the terrain of the region from expert geographers and had a great time with the enthusiastic youngsters.
+                    Thanks to Camp India for the lovely experience. A great way to explore India through camping adventures and field trips!
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+            <div class="testimonial">
+                <!-- <img src="/team3.png" alt=""> -->
+                <div class="name">Om Sapkal</div>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>
+                    Andarban was One the most exciting and adventurous Trek had and great guidance and fun and organising team had great management with good with everyones safety memorable and wonderful nature trek Thank you so camp India for organising this treak!!❤😌
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script
+    src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

@@ -1,14 +1,13 @@
-
 <th:block th:fragment="eventMenu">
     <nav class="sb-sidenav accordion sb-sidenav-dark vh-100" id="sidenavAccordion6">
         <div class="sb-sidenav-menu">
             <div class="nav">
-                <div class="sb-sidenav-menu-heading">MATI</div>
+                <div class="sb-sidenav-menu-heading">Camp India</div>
                 <a class="nav-link" th:href="@{/admin}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
-                <div class="sb-sidenav-menu-heading">Nomination</div>
+                <div class="sb-sidenav-menu-heading">Admin</div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#menu-6" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     MENU
@@ -18,10 +17,42 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" th:href="@{/eventsForm}">Event Form</a>
                         <a class="nav-link" th:href="@{/eventList}">Event List</a>
-                        <!--                        <a class="nav-link" th:href="@{/uploadParticipantAssessment}">Upload Assessment</a>-->
+                        <a class="nav-link" th:href="@{/uploadProgramMaterials}">Event Material</a>
+                        <a class="nav-link" th:href="@{/listProgramMaterials}">Event Material List</a>
                     </nav>
                 </div>
             </div>
         </div>
     </nav>
+    <style>
+        .sb-sidenav {
+            background-color: #343a40;
+        }
+        .sb-sidenav .nav-link {
+            color: #ffffff;
+        }
+        .sb-sidenav .nav-link:hover {
+            background-color: #ffc107;
+            color: #000000;
+        }
+        .sb-sidenav-menu-heading {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        .sb-nav-link-icon {
+            margin-right: 0.5rem;
+        }
+        .sb-sidenav-collapse-arrow {
+            transition: transform 0.3s ease;
+        }
+        .sb-sidenav .nav-link.collapsed .sb-sidenav-collapse-arrow {
+            transform: rotate(0);
+        }
+        .sb-sidenav .nav-link[aria-expanded="true"] .sb-sidenav-collapse-arrow {
+            transform: rotate(180deg);
+        }
+        .sb-sidenav-menu-nested .nav-link {
+            padding-left: 2rem;
+        }
+    </style>
 </th:block>
