@@ -1,0 +1,108 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+/* Corporate Section Styles */
+.corp {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+.corp h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 7rem; /* Margin from the top */
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: var(--black);
+    text-shadow: 2px 2px var(--yellow);
+    margin-bottom: 2rem;
+}
+
+/* Content Block Styling */
+.content-block {
+    margin-bottom: 2rem;
+    overflow: hidden; /* Ensures the container encloses floated elements */
+}
+
+.content-block img {
+    width: 30%; /* Adjusted width */
+    height: auto;
+    border-radius: 0.75rem;
+}
+
+.content-block p {
+    width: 60%; /* Adjusted width to accommodate larger images */
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.4rem;
+    color: #10221b;
+    line-height: 1.6;
+}
+
+.content-block img:first-of-type {
+    float: left;
+    margin-right: 2rem; /* Margin between image and text */
+}
+
+.content-block.second {
+    display: flex;
+    align-items: center;
+}
+
+.content-block.second img {
+    order: 2; /* Place the image at the end of the flex container */
+    margin-left: 2rem; /* Margin between text and image */
+    float: none;
+}
+
+.content-block.second p {
+    order: 1; /* Ensure the paragraphs come before the image */
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Ensure last two paragraphs align left of the second image */
+.content-block.second .text-block {
+    width: 70%; /* Adjusted width to fit alongside the image */
+}
+
+.content-block.second .text-block p {
+    width: 100%; /* Full width for paragraphs within the text block */
+    float: left; /* Align left */
+}
+
+.corp p {
+    font-size: 1.4rem;
+    color: #10221b;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .content-block, .content-block.second {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-block img, .content-block.second img {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    .content-block p, .content-block.second p {
+        width: 100%;
+        text-align: center;
+    }
+}

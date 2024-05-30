@@ -1,0 +1,183 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+/* Food Section Styles */
+.food {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.food h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 7rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: #10221b;
+    text-shadow: 0.1rem 0.1rem #ffd700;
+    width: 100%;
+}
+
+/* Left Container Styling */
+.left-container {
+    margin-top: 4rem;
+    width: 60%;
+}
+
+.box1, .box2 {
+    background: #fff;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box1:hover, .box2:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.box1 img, .box2 img {
+    width: 40rem; /* Set a fixed width for the images */
+    height: 30rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.box1 h2, .box2 h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    color: #10221b;
+    text-align: center;
+}
+
+.box1 p, .box2 p {
+    font-size: 1.4rem;
+    color: #10221b;
+    line-height: 1.6;
+}
+
+/* Right Container Styling */
+.right-container {
+    margin-top: 4rem;
+    width: 38%;
+}
+
+ .card2 {
+    background-color: #fff;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+ .card2:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+
+
+.card2 h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #10221b;
+}
+
+.card2 p {
+    font-size: 1.4rem;
+    color: #10221b;
+    line-height: 1.6;
+}
+
+.FW1, .FW2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.FW1 img, .FW2 img {
+    width: 3.75rem; /* 60px in rem */
+    height: 3.75rem;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .left-container, .right-container {
+        width: 100%;
+    }
+
+    .left-container {
+        margin-bottom: 2rem;
+    }
+
+    .food {
+        flex-direction: column;
+    }
+
+    .box1 img, .box2 img, .card1 img, .card2 img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .food {
+        padding: 1rem;
+    }
+
+    .box1 h2, .box2 h3, .card1 h3, .card2 h3 {
+        font-size: 1.5rem;
+    }
+
+    .box1 p, .box2 p, .card1 p, .card2 p {
+        font-size: 1.2rem;
+    }
+
+    .right-container {
+        margin-top: 2rem;
+    }
+
+    .FW1 img, .FW2 img {
+        width: 3.125rem; /* 50px in rem */
+        height: 3.125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .food {
+        padding: 1rem;
+    }
+
+    .box1 h2, .box2 h3, .card1 h3, .card2 h3 {
+        font-size: 1.2rem;
+    }
+
+    .box1 p, .box2 p, .card1 p, .card2 p {
+        font-size: 1rem;
+    }
+
+    .FW1 img, .FW2 img {
+        width: 3.125rem; /* 50px in rem */
+        height: 3.125rem;
+    }
+}

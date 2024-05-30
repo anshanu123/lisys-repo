@@ -3,8 +3,31 @@
 <head>
     <title>Upload Program Materials</title>
     <div th:insert="~{includes :: header}"></div>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card-header {
+            background-color: #343a40;
+            color: #ffc107;
+        }
+        .form-label {
+            color: #343a40;
+        }
+        .btn-primary {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #343a40;
+        }
+        .btn-primary:hover {
+            background-color: #e0a800;
+            border-color: #d39e00;
+            color: #ffffff;
+        }
+    </style>
 </head>
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="background: url('images/background-pattern.jpg') repeat; background-size: cover; background-color: #eee;">
 <div th:insert="~{includes :: topNav}"></div>
 <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
@@ -13,30 +36,25 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <!-- Dashboard Content -->
                 <div class="container py-3 mt-5 mb-4">
                     <div class="card">
                         <div class="card-header p-3">
                             <h5>Upload File</h5>
                         </div>
                         <div class="card-body p-4">
-                            <form th:action="@{/uploadProgramMaterials}" method="post"
-                                  enctype="multipart/form-data" th:object="${uploadMaterialObj}">
+                            <form th:action="@{/uploadProgramMaterials}" method="post" enctype="multipart/form-data" th:object="${uploadMaterialObj}">
                                 <div class="row mb-3">
                                     <label class="form-label">Event</label>
                                     <select th:field="*{eventId}" class="form-select">
-                                        <option th:each="p :${eventName}" th:value="${p.eventId}"
-                                                th:text="${p.eventName}"></option>
+                                        <option th:each="p :${eventName}" th:value="${p.eventId}" th:text="${p.eventName}"></option>
                                     </select>
                                 </div>
-
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="uploadMaterial" class="form-label">Upload Program Material</label>
                                         <input type="file" class="form-control" id="uploadMaterial" name="material"/>
                                     </div>
                                 </div>
-
                                 <div class="col-2">
                                     <div class="mb-4 py-4">
                                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -45,7 +63,7 @@
                             </form>
                             <div class="row">
                                 <table class="table">
-                                    <thead>
+                                    <thead class="bg-dark text-white">
                                     <tr>
                                         <th scope="col">Sl No.</th>
                                         <th scope="col">Event ID</th>
@@ -62,8 +80,7 @@
                                                     <div th:data-file="${p.materialBase64}" class="viewFileButton btn btn-sm btn-primary">View</div>
                                                 </div>
                                                 <div class="col-3">
-                                                    <a th:href="@{deleteProgramMaterialById/{id}(id=${p.id})}"
-                                                       class="btn btn-sm btn-danger">Delete</a>
+                                                    <a th:href="@{deleteProgramMaterialById/{id}(id=${p.id})}" class="btn btn-sm btn-danger">Delete</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -76,10 +93,9 @@
                 </div>
             </div>
         </main>
-
+        <div th:insert="~{includes :: footer}"></div>
     </div>
 </div>
-
-
+<div th:insert="~{includes :: script}"></div>
 </body>
 </html>

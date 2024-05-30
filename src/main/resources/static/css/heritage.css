@@ -1,0 +1,158 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+/* Heritage Section Styles */
+.hertiage {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.hertiage h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 7rem; /* Adjusted margin-top for equal spacing */
+    margin-bottom: 2rem; /* Adjusted margin-bottom for equal spacing */
+    font-weight: bold;
+    color: #10221b;
+    text-shadow: 0.1rem 0.1rem #ffd700;
+    width: 100%;
+}
+
+/* Left Container Styling */
+.left-container {
+    margin-top: 4rem; /* Adjusted margin-top for equal spacing */
+    width: 60%; /* Set left container to 60% of the total width */
+}
+
+.box1, .box2 {
+    background: #fff;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effects */
+}
+
+.box1:hover, .box2:hover {
+    transform: translateY(-0.5rem); /* Slightly lift the box on hover */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.box1 img, .box2 img {
+    width: 100%; /* Make images responsive within their containers */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.box1 h2, .box2 h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    color: #10221b;
+}
+
+.box1 p, .box2 p {
+    font-size: 1.4rem;
+    color: #10221b;
+    line-height: 1.6;
+}
+
+/* Right Container Styling */
+.right-container {
+    margin-top: 4rem; /* Adjusted margin-top for equal spacing */
+    width: 30%; /* Set right container to 30% of the total width */
+}
+
+.card1, .card2 {
+    background-color: #fff;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effects */
+}
+
+.card1:hover, .card2:hover {
+    transform: translateY(-0.5rem); /* Slightly lift the card on hover */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.card1 img, .card2 img {
+    width: 100%; /* Make images responsive within their containers */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.card1 h3, .card2 h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #10221b;
+}
+
+.card1 p, .card2 p {
+    font-size: 1.4rem;
+    color: #10221b;
+    line-height: 1.6;
+}
+
+.HW1, .HW2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.HW1 img, .HW2 img {
+    width: 60px; /* Adjusted image width */
+    height: 60px; /* Maintain square aspect ratio */
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .hertiage {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center;
+    }
+
+    .left-container, .right-container {
+        width: 100%; /* Full width for containers on smaller screens */
+        margin-top: 2rem; /* Add margin to separate sections */
+    }
+
+    .box1, .box2, .card1, .card2 {
+        width: 100%; /* Full width for boxes on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hertiage {
+        padding: 1rem; /* Reduce padding on smaller screens */
+    }
+
+    .box1 h2, .box2 h3, .card1 h3, .card2 h3 {
+        font-size: 1.5rem; /* Adjust font size */
+    }
+
+    .box1 p, .box2 p, .card1 p, .card2 p {
+        font-size: 1.2rem; /* Adjust font size */
+    }
+
+    .HW1 img, .HW2 img {
+        width: 50px; /* Further reduced size for smaller screens */
+        height: 50px;
+    }
+}

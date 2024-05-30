@@ -3,8 +3,44 @@
 <head>
     <title>List of Program Materials</title>
     <div th:insert="~{includes :: header}"></div>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card-header {
+            background-color: #343a40;
+            color: #ffc107;
+        }
+        .btn-primary {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #343a40;
+        }
+        .btn-primary:hover {
+            background-color: #e0a800;
+            border-color: #d39e00;
+            color: #ffffff;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            color: #ffffff;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+            color: #ffffff;
+        }
+        .bg-dark {
+            background-color: #343a40;
+        }
+        .text-white {
+            color: #ffffff;
+        }
+    </style>
 </head>
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="background: url('images/background-pattern.jpg') repeat; background-size: cover; background-color: #eee;">
 <div th:insert="~{includes :: topNav}"></div>
 <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
@@ -21,7 +57,7 @@
                         <div class="card-body p-4">
                             <div class="row">
                                 <table class="table">
-                                    <thead>
+                                    <thead class="bg-dark text-white">
                                     <tr>
                                         <th scope="col">Sl No.</th>
                                         <th scope="col">Event ID</th>
@@ -47,7 +83,6 @@
                                 </table>
                             </div>
                         </div>
-                        <!-- Add button for redirecting to upload material page -->
                         <div class="card-footer">
                             <a th:href="@{/uploadProgramMaterials}" class="btn btn-primary">Upload Material</a>
                         </div>
@@ -55,7 +90,9 @@
                 </div>
             </div>
         </main>
+        <div th:insert="~{includes :: footer}"></div>
     </div>
 </div>
+<div th:insert="~{includes :: script}"></div>
 </body>
 </html>

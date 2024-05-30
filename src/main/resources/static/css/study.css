@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+/* Study Tours Section Styles */
+.study {
+    max-width: 90%;
+    margin: 8rem auto 0 auto; /* Added top margin of 8rem */
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.study .heading h1 {
+    font-size: 3.6rem;
+    font-weight: bold;
+    color: var(--black);
+    text-shadow: 2px 2px var(--yellow);
+    margin-bottom: 2rem;
+}
+
+/* Card Styles */
+.card1, .card2 {
+    background: #fff;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card1:hover, .card2:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* Inline Image and Paragraph for Card1 */
+.card1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card1 img {
+    width: 50rem;
+    height:40rem;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+}
+
+.card1 p {
+    font-size: 1.4rem;
+    color: #10221b;
+    line-height: 1.6;
+    flex: 1;
+}
+
+/* Regular Card2 Styles */
+.card2 h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #10221b;
+    text-align: center;
+}
+
+.card2 p {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #10221b;
+    line-height: 1.6;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .study {
+        padding: 2rem;
+    }
+
+    .study .heading h1 {
+        font-size: 2rem;
+    }
+
+    .card1 p, .card2 p {
+        font-size: 1.2rem;
+    }
+
+    .card2 h2 {
+        font-size: 1.6rem;
+    }
+
+    .card1 {
+        flex-direction: column;
+    }
+
+    .card1 img {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .study {
+        padding: 1.5rem;
+    }
+
+    .study .heading h1 {
+        font-size: 2rem;
+    }
+
+    .card1 p, .card2 p {
+        font-size: 1rem;
+    }
+
+    .card2 h2 {
+        font-size: 1.4rem;
+    }
+
+    .card1 img {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .study {
+        padding: 1rem;
+    }
+
+    .study .heading h1 {
+        font-size: 2rem;
+    }
+
+    .card1 p, .card2 p {
+        font-size: 0.9rem;
+    }
+
+    .card2 h2 {
+        font-size: 1.2rem;
+    }
+
+    .card1 img {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
