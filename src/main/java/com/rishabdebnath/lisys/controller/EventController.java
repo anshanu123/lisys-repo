@@ -165,6 +165,14 @@ public class EventController {
             return "redirect:/listProgramMaterials";
         }
     }
+    @GetMapping("/uploadProgramMaterials/{id}")
+    public String uploadProgramMaterialsForm(@PathVariable("id") Long eventId, Model model) {
+        model.addAttribute("uploadMaterialObj", new ProgramMaterial(eventId, null));
+        List<Event> events = eventService.getAllEvents();
+        model.addAttribute("eventName", events);
+        return "events/uploadProgramMaterials";
+    }
+
 
 
 

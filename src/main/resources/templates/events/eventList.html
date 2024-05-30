@@ -28,10 +28,11 @@
                                 <tr>
                                     <th scope="col">Event Name</th>
                                     <th scope="col">Event Description</th>
-                                    <th scope="col">Image</th>
                                     <th scope="col">Event Date</th>
                                     <th scope="col">Location</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col">Actions</th>
+                                    <th scope="col">Submit PDF</th> <!-- New column header -->
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -46,6 +47,9 @@
                                     <td>
                                         <a class="btn btn-sm btn-primary mx-2" th:href="@{/edit/{id}(id=${n.eventId})}">Edit</a>
                                         <a class="btn btn-sm btn-danger mx-2" th:href="@{/delete/{id}(id=${n.eventId})}">Delete</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-success mx-2" th:href="@{/uploadProgramMaterials/{id}(id=${n.eventId})}">Submit PDF</a> <!-- New button -->
                                     </td>
                                 </tr>
                                 </tbody>
