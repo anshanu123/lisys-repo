@@ -49,67 +49,33 @@
 
 <!-- Upcoming events -->
 <section class="events-container">
-<section class="events">
-    <h1>Upcoming Events In Pune</h1>
-    <div class="slider">
-        <button class="slider-button prev">&lt;</button>
-        <div class="card-container">
-            <div class="card">
-                <img src="images/Trek/Rajgad trek1.jpg">
-                <h3><i class="fas fa-map-marker-alt"></i> Rajgad Trek</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur magni animi enim blanditiis hic totam minus veritatis ratione, tempora, quaerat quasi velit, possimus fuga fugiat. Sunt cupiditate voluptatum atque nisi.</p>
-                <div class="info-row">
-                    <p>Date: 3 July 2024</p>
-                    <p>Location: Pune</p>
+    <section class="events">
+        <h1>Upcoming Events In Pune</h1>
+        <div class="slider">
+            <button class="slider-button prev">&lt;</button>
+            <div class="card-container">
+                <div class="card" th:each="event : ${events}">
+                    <img th:src="@{/images/${event.imageName}}" alt="Event Image">
+                    <h3><i class="fas fa-map-marker-alt"></i> <span th:text="${event.eventName}"></span></h3>
+                    <p th:utext="${event.eventDescription}"></p>
+                    <div class="info-row">
+                        <p>Date: <span th:text="${#dates.format(event.eventDate, 'dd MMMM yyyy')}"></span></p>
+                        <p>Location: <span th:text="${event.location}"></span></p>
+                    </div>
+                    <a th:href="@{/trek/{eventId}(eventId=${event.eventId})}" class="info-link">Know More</a>
                 </div>
-                <a href="#" class="info-link">Know More</a>
             </div>
-
-            <div class="card">
-                <img src="images/Trek/Andharban1.jpg">
-                <h3><i class="fas fa-map-marker-alt"></i> Andharban Trek</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur magni animi enim blanditiis hic totam minus veritatis ratione, tempora, quaerat quasi velit, possimus fuga fugiat. Sunt cupiditate voluptatum atque nisi.</p>
-                <div class="info-row">
-                    <p>Date: 3 July 2024</p>
-                    <p>Location: Pune</p>
-                </div>
-                <a href="#" class="info-link">Know More</a>
-            </div>
-            
-            <div class="card">
-                <img src="images/Trek/tahmini hill 1.png">
-                <h3><i class="fas fa-map-marker-alt"></i> Tamhini Hill</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur magni animi enim blanditiis hic totam minus veritatis ratione, tempora, quaerat quasi velit, possimus fuga fugiat. Sunt cupiditate voluptatum atque nisi.</p>
-                <div class="info-row">
-                    <p>Date: 3 July 2024</p>
-                    <p>Location: Pune</p>
-                </div>
-                <a href="#" class="info-link">Know More</a>
-            </div>
-
-            <div class="card">
-                <img src="images/Trek/Harishchandragad.PNG">
-                <h3><i class="fas fa-map-marker-alt"></i> Harishchandra Gad</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur magni animi enim blanditiis hic totam minus veritatis ratione, tempora, quaerat quasi velit, possimus fuga fugiat. Sunt cupiditate voluptatum atque nisi.</p>
-                <div class="info-row">
-                    <p>Date: 3 July 2024</p>
-                    <p>Location: Pune</p>
-                </div>
-                <a href="#" class="info-link">Know More</a>
-            </div>
+            <button class="slider-button next">&gt;</button>
         </div>
-        <button class="slider-button next">&gt;</button>
-    </div>
-</section>
+    </section>
     <a href="#" class="view-all-link">View All</a>
 </section>
-
 
 <!-- query -->
 
 <div id="ask-query">
     <div class="container">
-        <h2 class="section-title">Event Inquiries</h2>
+        <h2 class="section-title">Event Enquiries</h2>
         <form action="#" method="POST" class="query-form" name="submit-to-google-sheet">
             <div class="form-group">
                 <input type="text" id="name" name="name" placeholder="Name" required>
@@ -128,7 +94,6 @@
         <span id="mssg"></span>
     </div>
 </div>
-
 
 <!-- Footer Section Starts -->
 <section class="footer" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/footerImage.jpg') no-repeat; background-size: cover; background-position: center; background-attachment: fixed;">
@@ -169,23 +134,23 @@
 <!-- Custom JS File Link -->
 <script src="js/trek.js"></script>
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbx5i-MGHqZQNjH4HNKA3BdI8H1vVlrA1PNFmheIcQNcBrk1rYiWI4dWjVnWiwOlOzgW/exec'
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwpOckgkwBS7XYmRg-43BDvJVp2Te0xM-l9BabdBsb_AcaLQka22l-jYRwN1s5quFfw/exec'
     const form = document.forms['submit-to-google-sheet']
     const mssg= document.getElementById("mssg")
-  
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            mssg.innerHTML="Message sent successfully"
-            setTimeout(function(){
-                mssg.innerHTML=""
 
-            },5000)
-            form.reset()
-        })
-        .catch(error => console.error('Error!', error.message))
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                mssg.innerHTML="Message sent successfully"
+                setTimeout(function(){
+                    mssg.innerHTML=""
+
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
     })
-  </script>
+</script>
 </body>
 </html>

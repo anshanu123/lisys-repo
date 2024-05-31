@@ -117,19 +117,6 @@ public class EventController {
         return "events/listProgramMaterials";
     }
 
-//    @GetMapping("/viewProgramMaterial/{id}")
-//    public void viewProgramMaterial(@PathVariable("id") Long id, HttpServletResponse response) throws IOException {
-//        Optional<ProgramMaterial> materialOpt = programMaterialService.findById(id);
-//        if (materialOpt.isPresent()) {
-//            ProgramMaterial material = materialOpt.get();
-//            response.setContentType("application/pdf");
-//            response.getOutputStream().write(material.getMaterialFile());
-//            response.getOutputStream().flush();
-//        } else {
-//            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-//        }
-//    }
-
     @GetMapping("/deleteProgramMaterial/{id}")
     public String deleteProgramMaterial(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
         programMaterialService.deleteMaterial(id);
@@ -137,20 +124,6 @@ public class EventController {
         return "redirect:/listProgramMaterials";
     }
 
-
-//    @GetMapping("/viewProgramMaterial/{id}")
-//    public ResponseEntity<byte[]> viewProgramMaterial(@PathVariable("id") Long id) throws IOException {
-//        Optional<ProgramMaterial> materialOpt = programMaterialService.findById(id);
-//        if (materialOpt.isPresent()) {
-//            ProgramMaterial material = materialOpt.get();
-//            HttpHeaders headers = new HttpHeaders();
-//            headers.setContentType(MediaType.APPLICATION_PDF);
-//            headers.setContentDispositionFormData("filename", "material.pdf");
-//            return new ResponseEntity<>(material.getMaterialFile(), headers, HttpStatus.OK);
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
     @GetMapping("/viewProgramMaterial/{id}")
     public String viewProgramMaterial(@PathVariable("id") Long id, Model model) throws IOException {
         Optional<ProgramMaterial> materialOpt = programMaterialService.findById(id);
@@ -165,8 +138,5 @@ public class EventController {
             return "redirect:/listProgramMaterials";
         }
     }
-
-
-
 
 }

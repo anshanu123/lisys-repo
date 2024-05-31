@@ -1,10 +1,19 @@
 package com.rishabdebnath.lisys.controller;
 
+import com.rishabdebnath.lisys.model.Event;
+import com.rishabdebnath.lisys.service.EventService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Controller
 public class CommonController {
+
+    @Autowired
+    private EventService eventService;
 
     @GetMapping("/home")
     public String showHomePage() {
@@ -17,9 +26,16 @@ public class CommonController {
     }
 
     @GetMapping("/treks")
-    public String showTreksPage() {
+    public String showTreksPage(Model model) {
+        List<Event> events = eventService.getAllEvents();
+        model.addAttribute("events", events);
         return "Treks";
     }
+
+//    @GetMapping("/treks")
+//    public String showTreksPage() {
+//        return "Treks";
+//    }
 
     @GetMapping("/services")
     public String showServicesPage() {

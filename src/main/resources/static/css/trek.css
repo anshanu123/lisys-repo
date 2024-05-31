@@ -503,7 +503,7 @@ section {
     color: #FFD700;
 }
 
-/* Media Queries
+/* Media Queries */
 @media (max-width: 1200px) {
     .header {
         padding: 2rem;
@@ -593,9 +593,9 @@ section {
     .slider-button.next {
         right: 1rem;
     }
-} */
+}
 
-/* @media (max-width: 450px) {
+@media (max-width: 450px) {
     html {
         font-size: 50%;
     }
@@ -611,7 +611,7 @@ section {
     .header .navbar #nav-close {
         font-size: 3rem;
     }
-} */
+}
 
 .footer {
     padding: 20px 0;
@@ -664,7 +664,7 @@ section {
     color: #FFD700;
 }
 
-/* Media Queries */
+/* Media Queries
 @media (max-width: 1200px) {
     html {
         font-size: 55%;
@@ -793,4 +793,4 @@ section {
         font-size: 1.4rem;
         padding: 0.5rem 1rem;
     }
-}
+} */

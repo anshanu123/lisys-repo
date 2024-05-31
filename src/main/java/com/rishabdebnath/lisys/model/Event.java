@@ -8,6 +8,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Date;
+
 @Entity
 @Table(name="event")
 public class Event {
@@ -24,7 +26,7 @@ public class Event {
     @NotEmpty
     @NotBlank
     @Pattern(regexp = "^[a-zA-Z0-9 ]+$")
-    @Column(length = 200, nullable = false, columnDefinition = "TEXT")
+    @Column(length = 300, nullable = false, columnDefinition = "TEXT")
     private String eventDescription;
 
     @Column(nullable = true, length = 200)
@@ -33,7 +35,7 @@ public class Event {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Kolkata")
-    private String eventDate;
+    private Date eventDate;
 
     @NotEmpty
     @NotBlank
@@ -44,11 +46,11 @@ public class Event {
     public Event() {
     }
 
-    public Event(Long eventId, String eventName, String eventDescription, String imageName, String eventDate, String location) {
+    public Event(Long eventId, String eventName, String imageName, String eventDescription, Date eventDate, String location) {
         this.eventId = eventId;
         this.eventName = eventName;
-        this.eventDescription = eventDescription;
         this.imageName = imageName;
+        this.eventDescription = eventDescription;
         this.eventDate = eventDate;
         this.location = location;
     }
@@ -85,11 +87,11 @@ public class Event {
         this.imageName = imageName;
     }
 
-    public String getEventDate() {
+    public Date getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(String eventDate) {
+    public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
     }
 
