@@ -1,116 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Trek List 1</title>
-
-    <!-- font awesome cdn link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- swiper css link -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
-    <!-- custom css file link -->
-    <link rel="stylesheet" href="css/Home.css">
+    <title>Trek List</title>
+    <div th:insert="~{includes :: header}"></div>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card-header {
+            background-color: #343a40;
+            color: #ffc107;
+        }
+        .card-body {
+            background-color: #ffffff;
+        }
+        .form-label {
+            color: #343a40;
+        }
+        .btn-primary {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #343a40;
+        }
+        .btn-primary:hover {
+            background-color: #e0a800;
+            border-color: #d39e00;
+            color: #ffffff;
+        }
+    </style>
 </head>
-<body>
-
-<!-- header -->
-<header class="header" role="banner">
-    <a href="#" class="logo"><img src="images/logo/CampIndia.jpeg" alt="Camp India Logo" class="small-logo"></a>
-
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
-        <div id="nav-close" class="fas fa-times" aria-label="Close Navigation"></div>
-        <a href="/home">Home</a>
-        <a href="/aboutUs">About Us</a>
-        <a href="/treks">Treks & Tour</a>
-        <a href="/services">Services</a>
-        <a href="#">Gear On Rent</a>
-        <a href="#">Expert Advice</a>
-    </nav>
-
-    <div class="icons">
-        <div id="menu-btn" class="fas fa-bars" aria-label="Menu"></div>
-        <div id="search-btn" class="fas fa-search" aria-label="Search"></div>
+<body class="sb-nav-fixed" style="background: url('images/background-pattern.jpg') repeat; background-size: cover; background-color: #eee;">
+<div th:insert="~{includes :: topNav}"></div>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <div th:insert="~{menu :: eventMenu}"></div>
     </div>
-</header>
-<!-- header -->
-
-<!-- search -->
-<div class="search-form" id="search-form">
-    <div id="close-search" class="fas fa-times"></div>
-    <form action="">
-        <input type="search" name="" placeholder="search here..." id="search">
-        <label for="search" class="fas fa-search"></label>
-    </form>
-</div>
-<!-- search -->
-
-<!-- main content -->
-<section class="trek-list">
-    <div class="container">
-        <h2 class="section-title">Events</h2>
-        <div class="trek-items">
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-4" th:each="trek : ${treks}">
-                    <div class="card mb-4 shadow-sm">
-                        <img th:src="@{/uploads/{image}(image=${trek.image})}" class="card-img-top" alt="Trek Image">
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${trek.eventDescription}">Event Description</h5>
-                            <p class="card-text"><i class="fas fa-map-marker-alt"></i> <span th:text="${trek.location}">Location</span></p>
-                            <p class="card-text">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span th:text="${#dates.format(trek.eventDate, 'dd-MM-yyyy')}">Event Date</span>
-                            </p>
-                            <p class="card-text">
-                                <i class="fas fa-id-badge"></i>
-                                <span th:text="${trek.eventId}">Event ID</span>
-                            </p>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="container w-60 mt-5 mb-4">
+                    <div class="row">
+                        <div class="card border-0 shadow">
+                            <div class="card-header p-3">
+                                <h5 class="text-center">Trek List</h5>
+                            </div>
+                            <div class="card-body p-3">
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <h2 class="section-title">Events</h2>
+                                        <div class="trek-items">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 col-lg-4" th:each="trek : ${treks}">
+                                                    <div class="card mb-4 shadow-sm">
+                                                        <img th:src="@{/uploads/{image}(image=${trek.image})}" class="card-img-top" alt="Trek Image">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title" th:text="${trek.eventDescription}">Event Description</h5>
+                                                            <p class="card-text"><i class="fas fa-map-marker-alt"></i> <span th:text="${trek.location}">Location</span></p>
+                                                            <p class="card-text">
+                                                                <i class="fas fa-calendar-alt"></i>
+                                                                <span th:text="${#dates.format(trek.eventDate, 'dd-MM-yyyy')}">Event Date</span>
+                                                            </p>
+                                                            <p class="card-text">
+                                                                <i class="fas fa-id-badge"></i>
+                                                                <span th:text="${trek.eventId}">Event ID</span>
+                                                            </p>
+                                                            <a th:href="@{/editTrek/{id}(id=${trek.id})}" class="btn btn-primary">Edit</a>
+                                                            <a th:href="@{/deleteTrek/{id}(id=${trek.id})}" class="btn btn-danger">Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-light">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-6 offset-md-5">
+                                                <a href="/trekForm" class="btn btn-primary btn-block">Add New Trek</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
+        <div th:insert="~{includes :: footer}"></div>
     </div>
-</section>
-<!-- main content -->
-
-<!-- Footer Section Starts -->
-<section class="footer" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/footerImage.jpg') no-repeat; background-size: cover; background-position: center; background-attachment: fixed;">
-    <div class="box-container">
-        <div class="box">
-            <h3>Quick Links</h3>
-            <a href="/home">Home</a>
-            <a href="/aboutUs">About</a>
-            <a href="/treks">Treks & Tour</a>
-            <a href="/services">Services</a>
-            <a href="#">Gear On Rent</a>
-            <a href="#">Expert Advice</a>
-            <a href="/">Admin</a>
-        </div>
-
-        <div class="box">
-            <h3>Contact Info</h3>
-            <a href=""><i class="fas fa-phone"></i> +91 84466 81197</a>
-            <a href=""><i class="fas fa-phone"></i> +91 80878 71197</a>
-        </div>
-
-        <div class="box">
-            <h3>Follow Us</h3>
-            <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a>
-            <a href="#"><i class="fab fa-instagram"></i>Instagram</a>
-            <a href="#"><i class="fab fa-twitter"></i>Twitter</a>
-            <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a>
-        </div>
-    </div>
-    <div class="credit"> Created by <span>Camp India</span> | All rights reserved!</div>
-</section>
-<!-- Footer Section Ends -->
-
-<!-- swiper js link -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<!-- custom js file link -->
-<!--<script src="js/Home.js"></script>-->
+</div>
+<div th:insert="~{includes :: script}"></div>
 </body>
 </html>

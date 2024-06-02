@@ -27,6 +27,10 @@ public class Trek {
 //    @Column(nullable = false, columnDefinition = "TEXT")
     private String eventDescription;
 
+    @NotEmpty
+    @NotBlank
+    private String itineraryDescription;
+
     @Column(nullable = true)
     private String image;
 
@@ -44,13 +48,14 @@ public class Trek {
     public Trek() {
     }
 
-    public Trek(Date eventDate, String location, String image, String eventDescription, Long eventId, Long id) {
+    public Trek(Long id, Long eventId, String eventDescription, String itineraryDescription, String image, Date eventDate, String location) {
+        this.id = id;
+        this.eventId = eventId;
+        this.eventDescription = eventDescription;
+        this.itineraryDescription = itineraryDescription;
+        this.image = image;
         this.eventDate = eventDate;
         this.location = location;
-        this.image = image;
-        this.eventDescription = eventDescription;
-        this.eventId = eventId;
-        this.id = id;
     }
 
     public Long getId() {
@@ -75,6 +80,14 @@ public class Trek {
 
     public void setEventDescription(String eventDescription) {
         this.eventDescription = eventDescription;
+    }
+
+    public String getItineraryDescription() {
+        return itineraryDescription;
+    }
+
+    public void setItineraryDescription(String itineraryDescription) {
+        this.itineraryDescription = itineraryDescription;
     }
 
     public String getImage() {

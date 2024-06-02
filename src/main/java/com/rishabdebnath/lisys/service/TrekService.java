@@ -35,4 +35,17 @@ public class TrekService {
         Optional<Trek> trek = trekRepository.findByEventId(eventId);
         return trek.orElse(null);
     }
+
+    public void updateTrek(Trek trek) {
+        trekRepository.save(trek);
+    }
+
+    public Trek getTrekById(Long id) {
+        Optional<Trek> trek = trekRepository.findById(id);
+        return trek.orElse(null);
+    }
+
+    public void deleteTrek(Long id) {
+        trekRepository.deleteById(id);
+    }
 }
