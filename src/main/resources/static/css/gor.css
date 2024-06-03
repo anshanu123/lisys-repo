@@ -1,0 +1,552 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear;
+}
+
+:root {
+    --green: #219150;
+    --black: #10221b;
+    --white: #fff;
+    --yellow: #ffd700;
+    --light-bg: #eee;
+    --navbar-bg: rgba(0, 0, 0, 0.7); 
+    --border: 0.2rem solid var(--black);
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    background-image: url('your-background-pattern.jpg'); /* Ensure you have the correct path */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--black);
+}
+
+section {
+    padding: 5rem 9%;
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    border: var(--border);
+    color: var(--black);
+    cursor: pointer;
+    background: none;
+    font-size: 1.7rem;
+    padding: 1rem 3rem;
+}
+
+.btn:hover {
+    background: var(--black);
+    color: var(--yellow);
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 4rem;
+    color: black;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 9%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background: var(--navbar-bg); 
+    border-radius: 2rem; 
+}
+
+.header.active {
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+}
+
+.header .logo {
+    margin-right: auto;
+    font-size: 2.5rem;
+    color: var(--black);
+    font-weight: bolder;
+}
+
+.small-logo {
+    width: 50px; 
+    height: auto; 
+}
+
+.header .navbar {
+    display: flex;
+    align-items: center;
+}
+
+.header .navbar a {
+    margin-left: 2rem;
+    font-size: 1.7rem;
+    color: var(--white); 
+}
+
+.header .navbar a:hover {
+    color: var(--yellow);
+}
+
+.header .navbar #nav-close {
+    font-size: 5rem;
+    cursor: pointer;
+    color: var(--white);
+    display: none;
+}
+
+.header .icons a,
+.header .icons div {
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    cursor: pointer;
+    color: var(--white); 
+}
+
+.header .icons a:hover,
+.header .icons div:hover {
+    color: var(--yellow);
+}
+
+.header #menu-btn {
+    display: none;
+}
+
+.search-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transform: translateY(-110%);
+    transition: transform 0.3s ease;
+}
+
+.search-form.active {
+    transform: translateY(0%);
+}
+
+.search-form #close-search {
+    position: absolute;
+    top: 1.5rem;
+    right: 2.5rem;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 6rem;
+}
+
+.search-form #close-search:hover {
+    color: var(--yellow);
+}
+
+.search-form form {
+    width: 70rem;
+    margin: 0.2rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.2rem solid var(--white);
+    display: flex;
+    align-items: center;
+}
+
+.search-form form input {
+    width: 100%;
+    font-size: 1.7rem;
+    color: var(--white);
+    text-transform: none;
+    background: none;
+    padding-right: 2rem;
+}
+
+.search-form form input::placeholder {
+    color: #aaa;
+}
+
+.search-form form label {
+    font-size: 3rem;
+    cursor: pointer;
+    color: var(--white);
+}
+
+.search-form form label:hover {
+    color: var(--yellow);
+}
+
+
+/* GOR */
+
+/* GOR Section */
+.gor {
+    padding: 5rem 9%;
+    margin-top: 7rem; /* To ensure it appears below the header */
+}
+
+.gor .heading h1{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+    color: var(--black);
+    text-shadow: 0.2rem 0.2rem var(--yellow);
+}
+
+
+.gor .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); /* Increased minimum card size */
+    gap: 3rem; /* Increased gap between cards */
+}
+
+.gor .card {
+    background-color: var(--white);
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gor .card:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.gor .card img {
+    max-width: 100%;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.gor .card h3 {
+    font-size: 2.5rem; /* Increased font size */
+    color: var(--black);
+    margin-bottom: 1rem;
+}
+
+.gor .card p {
+    font-size: 1.6rem; /* Increased font size */
+    color: var(--black);
+    margin-bottom: 1rem;
+}
+
+.gor .card .rent {
+    font-size: 1.8rem; /* Larger font size */
+    color: var(--green); /* Highlighted color */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 1rem;
+}
+
+.gor .card .btn {
+    display: inline-block;
+    padding: 1.2rem 2.5rem; /* Increased padding */
+    font-size: 1.8rem; /* Larger font size */
+    color: var(--white);
+    background-color: var(--green);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.gor .card .btn:hover {
+    background-color: var(--yellow);
+    color: var(--black);
+}
+
+/* Tag Styling */
+.gor .card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.gor .card .tags span {
+    background-color: var(--yellow);
+    color: var(--black);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.gor .card .tags span:hover {
+    background-color: var(--black);
+    color: var(--yellow);
+}
+
+/* Booking Form Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 50rem; /* Reduced max-width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.heading.book-now-heading {
+    font-size: 2.5rem; /* Slightly smaller font size */
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: var(--black);
+    text-shadow: 0.2rem 0.2rem var(--yellow);
+}
+
+#bookingFormContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Slightly reduced margin */
+    width: 100%;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 0.8rem; /* Slightly reduced padding */
+    font-size: 1.4rem; /* Slightly smaller font size */
+    border: 0.1rem solid #ccc;
+    border-radius: 0.5rem;
+    transition: border-color 0.3s ease;
+    
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="date"]:focus {
+    border-color: #2196F3;
+    outline: none;
+}
+
+.btn {
+    width: 50%; /* Increased width for better button size proportion */
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: black;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn:hover {
+    background-color: #FFD700;
+    color: #000;
+}
+
+#mssg {
+    font-size: 1.5rem;
+    text-align: center;
+    color: green;
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Footer */
+
+.footer {
+    padding: 20px 0;
+    color: #fff;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1rem;
+    padding: 20px;
+}
+
+.footer .box-container .box h3 {
+    font-size: 2rem;
+    padding: 1.5rem 0;
+    color: #fff;
+}
+
+.footer .box-container .box a {
+    display: block;
+    font-size: 1.4rem;
+    color: #fff;
+    padding: 1rem 0;
+    text-decoration: none;
+}
+
+.footer .box-container .box a i {
+    color: #FFD700; 
+    padding-right: 0.5rem;
+}
+
+.footer .box-container .box a:hover {
+    color: #FFD700;
+}
+
+.footer .box-container .box a:hover i {
+    padding-right: 2rem;
+}
+
+.footer .credit {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding: 1rem;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.footer .credit span {
+    color: #FFD700;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem 5%;
+    }
+
+    .header .navbar {
+        display: none;
+    }
+
+    .header #menu-btn {
+        display: block;
+    }
+
+    .search-form form {
+        width: 90%;
+    }
+
+    .gor {
+        padding: 3rem 5%;
+    }
+
+    .gor .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .gor .card {
+        padding: 1.5rem;
+    }
+
+    .footer .box-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 50%;
+    }
+
+    .header {
+        padding: 1rem 2%;
+    }
+
+    .header .logo {
+        font-size: 2rem;
+    }
+
+    .header .icons a,
+    .header .icons div {
+        font-size: 2rem;
+        margin-left: 1rem;
+    }
+
+    .search-form form {
+        width: 80%;
+    }
+
+    .gor .heading {
+        font-size: 3rem;
+    }
+
+    .gor .card h3 {
+        font-size: 2rem;
+    }
+
+    .gor .card p,
+    .gor .card .rent {
+        font-size: 1.4rem;
+    }
+
+    .gor .card .btn {
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
+    }
+}

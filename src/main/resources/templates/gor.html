@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEAR ON RENT</title>
+
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Swiper CSS Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Custom CSS File Link -->
+    <link rel="stylesheet" href="css/gor.css">
+</head>
+
+<body style="background: url('images/background-pattern.jpg') repeat; background-size: cover; background-color: #eee;">
+
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo"><img src="images\logo\CampIndia.jpeg" alt="Travel Logo" class="small-logo"></a>
+
+        <nav class="navbar">
+            <div id="nav-close" class="fas fa-times"></div>
+            <a href="/home">Home</a>
+            <a href="/aboutUs">About Us</a>
+            <a href="/treks">Treks & Tour</a>
+            <a href="/services">Services</a>
+            <a href="/gearOnRent">Gear On Rent</a>
+            <a href="/termsAndCondition">Term & Condition</a>
+        </nav>
+
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+        </div>
+    </header>
+    <!-- Header -->
+
+    <!-- Search -->
+    <div class="search-form" id="search-form">
+        <div id="close-search" class="fas fa-times"></div>
+        <form action="">
+            <input type="search" name="" placeholder="search here..." id="search">
+            <label for="search" class="fas fa-search"></label>
+        </form>
+    </div>
+    <!-- Search -->
+
+    <!-- GOR -->
+    <div class="gor" id="gor">
+        <div class="heading">
+            <h1>GEAR ON RENT</h1>
+            <div class="cards">
+                <div class="card" data-rent="100">
+                    <img src="images\GOR\BAG_1.PNG" alt="GOR Image">
+                    <h3>Reinforced Backpack Rain Cover</h3>
+                    <p class="rent">Rent: Rs 100 for 24 hours</p>
+                    <button class="btn" onclick="openBookingForm('Reinforced Backpack Rain Cover', 100)">Book Now</button>
+                </div>
+                <div class="card" data-rent="500">
+                    <img src="images\GOR\Shoes_W_1.PNG" alt="GOR Image">
+                    <h3>Women Waterproof Trekking Boots</h3>
+                    <p>These Waterproof Boots Let You Progress On Mountain Trails With Good Support And Walking Comfort.</p>
+                    <p class="rent">Rent: Rs 500 For 24 Hours</p>
+                    <button class="btn" onclick="openBookingForm('Women Waterproof Trekking Boots', 500)">Book Now</button>
+                </div>
+                <div class="card" data-rent="300">
+                    <img src="images\GOR\sleeping_bag_1.PNG" alt="GOR Image">
+                    <h3>Camping Sleeping Bag</h3>
+                    <p class="rent">Rent: Rs 300 for 24 hours</p>
+                    <button class="btn" onclick="openBookingForm('Camping Sleeping Bag', 300)">Book Now</button>
+                </div>
+                <div class="card" data-rent="500">
+                    <img src="images\GOR\tent.PNG" alt="GOR Image">
+                    <h3>3 Person Camping Tent</h3>
+                    <p class="rent">Rent: Rs 500 for 24 hours</p>
+                    <button class="btn" onclick="openBookingForm('3 Person Camping Tent', 500)">Book Now</button>
+                </div>
+                <div class="card" data-rent="200">
+                    <img src="images\GOR\Sweater_M_1.PNG" alt="GOR Image">
+                    <h3>Men Sweater Full-Zip Fleece For Hiking</h3>
+                    <p>Made For Hiking In The Cold - Weather.</p>
+                    <p class="rent">Rent: Rs 200 for 24 hours</p>
+                    <button class="btn" onclick="openBookingForm('Men Sweater Full-Zip Fleece For Hiking', 200)">Book Now</button>
+                </div>
+                <div class="card" data-rent="60">
+                    <img src="images\GOR\head_light_1.PNG" alt="GOR Image">
+                    <h3>Head Torch</h3>
+                    <p>Our Team Of Trekking Enthusiasts Has Designed This Head Torch For Your Bivouacking Trips So You Can Move Around At Night Or Light Up All Around You.</p>
+                    <p class="rent">Rent: Rs 60 for 24 hours</p>
+                    <button class="btn" onclick="openBookingForm('Head Torch', 60)">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- GOR -->
+
+    <!-- Booking Form Modal -->
+    <div id="bookingForm" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingForm()">&times;</span>
+            <form id="bookingFormContent" name="submit-to-google-sheet">
+                <h1 class="heading book-now-heading">Book Now</h1>
+                <div class="form-group">
+                    <input type="text" id="item" name="item" readonly placeholder="Item">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="number" id="pieces" name="pieces" required min="1" placeholder="Number of Pieces">
+                </div>
+                <div class="form-group">
+                    <input type="date" id="date" name="date" required placeholder="Date">
+                </div>
+                <button type="submit" class="btn">Book Now</button>
+            </form>
+            <span id="mssg"></span>
+        </div>
+    </div>
+    <!-- Booking Form Modal -->
+
+    <!-- Footer Section Starts -->
+    <section class="footer" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/footerImage.jpg') no-repeat; background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="box-container">
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="/home">Home</a>
+                <a href="/aboutUs">About</a>
+                <a href="/treks">Treks & Tour</a>
+                <a href="/services">Services</a>
+                <a href="/gearOnRent">Gear On Rent</a>
+                <a href="/termsAndCondition">Expert Advice</a>
+                <a href="/">Admin</a>
+            </div>
+
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="#"><i class="fas fa-phone"></i> +91 84466 81197</a>
+                <a href="#"><i class="fas fa-phone"></i> +91 80878 71197</a>
+            </div>
+
+            <div class="box">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i>Instagram</a>
+                <a href="#"><i class="fab fa-twitter"></i>Twitter</a>
+                <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="credit">Created by <span>Camp India</span> | All rights reserved!</div>
+    </section>
+    <!-- Footer Section Ends -->
+
+    <!-- Swiper JS Link -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Custom JS File Link -->
+    <script src="gor.js"></script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyUeUp7ZGIpKYpNnaKZCs59Kxtyh0fFn3V6FoDZw13X_nmFdQP8tmGgEsFK9SAmoZgz/exec';
+        const form = document.forms['submit-to-google-sheet'];
+        const mssg = document.getElementById("mssg");
+        const bookingFormModal = document.getElementById('bookingForm');
+        const itemInput = document.getElementById('item');
+        let itemRent = 0;
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    mssg.innerHTML = "Message sent successfully";
+                    setTimeout(() => { mssg.innerHTML = ""; }, 5000);
+                form.reset();
+                closeBookingForm();
+            })
+            .catch(error => console.error('Error!', error.message));
+    });
+
+    function openBookingForm(item, rent) {
+        itemRent = rent;
+        itemInput.value = item;
+        bookingFormModal.style.display = "block";
+    }
+
+    function closeBookingForm() {
+        bookingFormModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == bookingFormModal) {
+            closeBookingForm();
+        }
+    };
+</script>
+
+</body>
+</html>
+
+
+                

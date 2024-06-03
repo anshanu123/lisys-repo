@@ -88,63 +88,61 @@ public class EventController {
         eventService.deleteEvent(id);
         return "redirect:/eventList";
     }
-    @GetMapping("/uploadProgramMaterials")
-    public String uploadProgramMaterialsForm(Model model) {
-        model.addAttribute("uploadMaterialObj", new ProgramMaterial());
-        List<Event> events = eventService.getAllEvents();
-        model.addAttribute("eventName", events);
-        return "events/uploadProgramMaterials";
-    }
-
-    @PostMapping("/uploadProgramMaterials")
-    public String uploadProgramMaterials(@Valid @ModelAttribute("uploadMaterialObj") ProgramMaterial programMaterial,
-                                         BindingResult br,
-                                         @RequestParam("material") MultipartFile file,
-                                         RedirectAttributes redirectAttributes) throws IOException {
-        if (br.hasErrors()) {
-            redirectAttributes.addFlashAttribute("error", br.getFieldError().getDefaultMessage());
-            return "redirect:/uploadProgramMaterials";
-        } else {
-            programMaterialService.saveMaterial(programMaterial, file);
-            return "redirect:/listProgramMaterials"; // Correct view name redirection
-        }
-    }
-
-    @GetMapping("/listProgramMaterials")
-    public String listProgramMaterials(Model model) {
-        List<ProgramMaterial> materials = programMaterialService.getAllMaterials();
-        model.addAttribute("materials", materials);
-        return "events/listProgramMaterials";
-    }
-
-    @GetMapping("/deleteProgramMaterial/{id}")
-    public String deleteProgramMaterial(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
-        programMaterialService.deleteMaterial(id);
-        redirectAttributes.addFlashAttribute("message", "Material deleted successfully.");
-        return "redirect:/listProgramMaterials";
-    }
-
-    @GetMapping("/viewProgramMaterial/{id}")
-    public String viewProgramMaterial(@PathVariable("id") Long id, Model model) throws IOException {
-        Optional<ProgramMaterial> materialOpt = programMaterialService.findById(id);
-        if (materialOpt.isPresent()) {
-            ProgramMaterial material = materialOpt.get();
-            // Assuming you have a method to convert byte array to Base64 string
-            String materialBase64 = Base64.getEncoder().encodeToString(material.getMaterialFile());
-            model.addAttribute("materialBase64", materialBase64);
-            return "events/viewProgramMaterial"; // Assuming you have a view for displaying PDF
-        } else {
-            // Handle not found scenario
-            return "redirect:/listProgramMaterials";
-        }
-    }
-    @GetMapping("/uploadProgramMaterials/{id}")
-    public String uploadProgramMaterialsForm(@PathVariable("id") Long eventId, Model model) {
-        model.addAttribute("uploadMaterialObj", new ProgramMaterial(eventId, null));
-        List<Event> events = eventService.getAllEvents();
-        model.addAttribute("eventName", events);
-        return "events/uploadProgramMaterials";
-    }
-
-
+//    @GetMapping("/uploadProgramMaterials")
+//    public String uploadProgramMaterialsForm(Model model) {
+//        model.addAttribute("uploadMaterialObj", new ProgramMaterial());
+//        List<Event> events = eventService.getAllEvents();
+//        model.addAttribute("eventName", events);
+//        return "events/uploadProgramMaterials";
+//    }
+//
+//    @PostMapping("/uploadProgramMaterials")
+//    public String uploadProgramMaterials(@Valid @ModelAttribute("uploadMaterialObj") ProgramMaterial programMaterial,
+//                                         BindingResult br,
+//                                         @RequestParam("material") MultipartFile file,
+//                                         RedirectAttributes redirectAttributes) throws IOException {
+//        if (br.hasErrors()) {
+//            redirectAttributes.addFlashAttribute("error", br.getFieldError().getDefaultMessage());
+//            return "redirect:/uploadProgramMaterials";
+//        } else {
+//            programMaterialService.saveMaterial(programMaterial, file);
+//            return "redirect:/listProgramMaterials"; // Correct view name redirection
+//        }
+//    }
+//
+//    @GetMapping("/listProgramMaterials")
+//    public String listProgramMaterials(Model model) {
+//        List<ProgramMaterial> materials = programMaterialService.getAllMaterials();
+//        model.addAttribute("materials", materials);
+//        return "events/listProgramMaterials";
+//    }
+//
+//    @GetMapping("/deleteProgramMaterial/{id}")
+//    public String deleteProgramMaterial(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
+//        programMaterialService.deleteMaterial(id);
+//        redirectAttributes.addFlashAttribute("message", "Material deleted successfully.");
+//        return "redirect:/listProgramMaterials";
+//    }
+//
+//    @GetMapping("/viewProgramMaterial/{id}")
+//    public String viewProgramMaterial(@PathVariable("id") Long id, Model model) throws IOException {
+//        Optional<ProgramMaterial> materialOpt = programMaterialService.findById(id);
+//        if (materialOpt.isPresent()) {
+//            ProgramMaterial material = materialOpt.get();
+//            // Assuming you have a method to convert byte array to Base64 string
+//            String materialBase64 = Base64.getEncoder().encodeToString(material.getMaterialFile());
+//            model.addAttribute("materialBase64", materialBase64);
+//            return "events/viewProgramMaterial"; // Assuming you have a view for displaying PDF
+//        } else {
+//            // Handle not found scenario
+//            return "redirect:/listProgramMaterials";
+//        }
+//    }
+//    @GetMapping("/uploadProgramMaterials/{id}")
+//    public String uploadProgramMaterialsForm(@PathVariable("id") Long eventId, Model model) {
+//        model.addAttribute("uploadMaterialObj", new ProgramMaterial(eventId, null));
+//        List<Event> events = eventService.getAllEvents();
+//        model.addAttribute("eventName", events);
+//        return "events/uploadProgramMaterials";
+//    }
 }

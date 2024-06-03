@@ -535,7 +535,7 @@ section {
         left: -110%;
         background: var(--white);
         z-index: 10000;
-        width: 35rem;
+        width: 35rem;   
         height: 100%;
         display: flex;
         flex-flow: column;

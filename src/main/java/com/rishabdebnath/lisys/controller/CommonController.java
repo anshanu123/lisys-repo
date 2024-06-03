@@ -77,4 +77,14 @@ public class CommonController {
         return "Corporate";
     }
 
+    @GetMapping("/gearOnRent")
+    public String showGearOnRentPage() {
+        return "gor";
+    }
+
+    @GetMapping("/termsAndCondition")
+    public String termsAndConditionPage() {
+        return "t&c";
+    }
+
 }

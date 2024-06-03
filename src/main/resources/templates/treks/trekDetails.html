@@ -11,22 +11,439 @@
     <!-- Swiper CSS Link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-    <!-- Custom CSS File Link -->
-    <link rel="stylesheet" href="css/trekDetails.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: 0.2s linear;
+        }
+
+        :root {
+            --green: #219150;
+            --black: #10221b;
+            --white: #fff;
+            --yellow: #ffd700;
+            --light-bg: #eee;
+            --navbar-bg: rgba(0, 0, 0, 0.7);
+            --border: 0.2rem solid var(--black);
+            --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem;
+        }
+
+        html::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        html::-webkit-scrollbar-track {
+            background: var(--white);
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: var(--black);
+        }
+
+        section {
+            padding: 5rem 9%;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            display: inline-block;
+            border: var(--border);
+            color: var(--black);
+            cursor: pointer;
+            background: none;
+            font-size: 1.7rem;
+            padding: 1rem 3rem;
+        }
+
+        .btn:hover {
+            background: var(--black);
+            color: var(--yellow);
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 4rem;
+            color: black;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem 9%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background: var(--navbar-bg);
+            border-radius: 2rem;
+        }
+
+        .header.active {
+            background: var(--white);
+            box-shadow: var(--box-shadow);
+        }
+
+        .header .logo {
+            margin-right: auto;
+            font-size: 2.5rem;
+            color: var(--yellow);
+            font-weight: bolder;
+        }
+
+        .small-logo {
+            width: 50px;
+            height: auto;
+        }
+
+        .header .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .navbar a {
+            margin-left: 2rem;
+            font-size: 1.7rem;
+            color: var(--white);
+        }
+
+        .header .navbar a:hover {
+            color: var(--yellow);
+        }
+
+        .header .navbar #nav-close {
+            font-size: 5rem;
+            cursor: pointer;
+            color: var(--white);
+            display: none;
+        }
+
+        .header .icons a,
+        .header .icons div {
+            font-size: 2.5rem;
+            margin-left: 2rem;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        .header .icons a:hover,
+        .header .icons div:hover {
+            color: var(--yellow);
+        }
+
+        .header #menu-btn {
+            display: none;
+        }
+
+        .search-form {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transform: translateY(-110%);
+            transition: transform 0.3s ease;
+        }
+
+        .search-form.active {
+            transform: translateY(0%);
+        }
+
+        .search-form #close-search {
+            position: absolute;
+            top: 1.5rem;
+            right: 2.5rem;
+            cursor: pointer;
+            color: var(--white);
+            font-size: 6rem;
+        }
+
+        .search-form #close-search:hover {
+            color: var(--yellow);
+        }
+
+        .search-form form {
+            width: 70rem;
+            margin: 0.2rem;
+            padding-bottom: 2rem;
+            border-bottom: 0.2rem solid var(--white);
+            display: flex;
+            align-items: center;
+        }
+
+        .search-form form input {
+            width: 100%;
+            font-size: 1.7rem;
+            color: var(--white);
+            text-transform: none;
+            background: none;
+            padding-right: 2rem;
+        }
+
+        .search-form form input::placeholder {
+            color: #aaa;
+        }
+
+        .search-form form label {
+            font-size: 3rem;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        .search-form form label:hover {
+            color: var(--yellow);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 0;
+            color: #fff;
+        }
+
+        .footer .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 1rem;
+            padding: 20px;
+        }
+
+        .footer .box-container .box h3 {
+            font-size: 2rem;
+            padding: 1.5rem 0;
+            color: #fff;
+        }
+
+        .footer .box-container .box a {
+            display: block;
+            font-size: 1.4rem;
+            color: #fff;
+            padding: 1rem 0;
+            text-decoration: none;
+        }
+
+        .footer .box-container .box a i {
+            color: #FFD700;
+            padding-right: 0.5rem;
+        }
+
+        .footer .box-container .box a:hover {
+            color: #FFD700;
+        }
+
+        .footer .box-container .box a:hover i {
+            padding-right: 2rem;
+        }
+
+        .footer .credit {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding: 1rem;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .footer .credit span {
+            color: #FFD700;
+        }
+
+        @media (max-width: 1200px) {
+            .header {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 911px) {
+            html {
+                font-size: 55%;
+                scroll-padding-top: 7rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header #menu-btn {
+                display: inline-block;
+            }
+
+            .header .navbar {
+                position: fixed;
+                top: 0;
+                left: -110%;
+                background: var(--white);
+                z-index: 10000;
+                width: 35rem;
+                height: 100%;
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s ease;
+            }
+
+            .header .navbar.active {
+                left: 0;
+                box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+            }
+
+            .header .navbar a {
+                margin: 1rem 0;
+                font-size: 3rem;
+            }
+
+            .header .navbar #nav-close {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 2rem;
+            }
+
+            .swiper-button-next::after,
+            .swiper-button-prev::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+            .header .navbar {
+                width: 100%;
+            }
+            .header .navbar a {
+                font-size: 2.5rem;
+            }
+            .search-form form {
+                width: 90%;
+            }
+        }
+
+        /* Custom styles for the event container */
+        .container {
+            padding: 2rem;
+            border: var(--border);
+            background-color: var(--light-bg);
+            box-shadow: var(--box-shadow);
+            border-radius: 1rem;
+            margin: 10rem auto 2rem auto; /* Added margin-top */
+            max-width: 90%;
+        }
+
+        .container img {
+            width: 30%;
+            height: auto;
+            max-height: 550px; /* Set a maximum height for the image */
+            border-radius: 5rem;
+            margin-bottom: 7.5rem;
+        }
+
+        .container p {
+            font-size: 1.6rem;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .container .event-date {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--green);
+            margin-bottom: 1rem;
+        }
+
+        .container .location {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--yellow);
+            margin-bottom: 1rem;
+        }
+
+        .container .event-description {
+            font-size: 1.6rem;
+            color: var(--black);
+            margin-bottom: 2rem;
+        }
+
+        .container .itinerary {
+            font-size: 1.6rem;
+            color: var(--black);
+            margin-bottom: 2rem;
+            border-top: var(--border);
+            padding-top: 1rem;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10rem auto 2rem auto;
+            }
+            .container p {
+                font-size: 1.5rem;
+            }
+            .container .event-date,
+            .container .location {
+                font-size: 2rem;
+            }
+            .container .event-description,
+            .container .itinerary {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .container {
+                margin: 10rem auto 2rem auto;
+            }
+            .container p {
+                font-size: 1.5rem;
+            }
+            .container .event-date,
+            .container .location {
+                font-size: 1.8rem;
+            }
+            .container .event-description,
+            .container .itinerary {
+                font-size: 2rem;
+            }
+        }
+
+
+
+    </style>
 </head>
 <body style="background: url('images/background-pattern.jpg') repeat; background-size: cover; background-color: #eee;">
 <!-- Header -->
 <header class="header">
-    <a href="#" class="logo"><img src="images/logo/CampIndia.jpeg" alt="Travel Logo" class="small-logo"></a>
+    <a href="#" class="logo"><img src="image\logo\CampIndia.jpeg" alt="Camp India" class="small-logo"></a>
 
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
         <a href="/home">Home</a>
-        <a href="/aboutUs">About</a>
+        <a href="/aboutUs">About Us</a>
         <a href="/treks">Treks & Tour</a>
         <a href="/services">Services</a>
-        <a href="#">Gear On Rent</a>
-        <a href="#">Expert Advice</a>
+        <a href="/gearOnRent">Gear On Rent</a>
+        <a href="/termsAndCondition">Term & Condition</a>
     </nav>
 
     <div class="icons">
@@ -48,11 +465,11 @@
 
 <!--content-->
 <div class="container">
-    <img th:src="@{/uploads/${trek.image}}" alt="Event Image">
-    <p>Date: <span th:text="${#dates.format(trek.eventDate, 'dd MMMM yyyy')}">Event Date</span></p>
-    <p>Location: <span th:text="${trek.location}">Location</span></p>
-    <p th:text="${trek.eventDescription}">Event Description</p>
-    <p th:text="${trek.itineraryDescription}">Itinerary</p>
+    <img th:src="@{'/uploads/' + ${trek.image}}" alt="Event Image">
+    <p class="event-date">Date: <span th:text="${#dates.format(trek.eventDate, 'dd MMMM yyyy')}">Event Date</span></p>
+    <p class="location">Location: <span th:text="${trek.location}">Location</span></p>
+    <p class="event-description" th:text="${trek.eventDescription}">Event Description</p>
+    <p class="itinerary" th:text="${trek.itineraryDescription}">Itinerary</p>
 </div>
 <!--content-->
 
@@ -65,8 +482,8 @@
             <a href="/aboutUs">About</a>
             <a href="/treks">Treks & Tour</a>
             <a href="/services">Services</a>
-            <a href="#">Gear On Rent</a>
-            <a href="#">Expert Advice</a>
+            <a href="/gearOnRent">Gear On Rent</a>
+            <a href="/termsAndCondition">Expert Advice</a>
             <a href="/">Admin</a>
         </div>
 
@@ -92,7 +509,40 @@
 <!-- Swiper JS Link -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<!-- Custom JS File Link -->
-<script src="js/trek.js"></script>
+<script>
+    var navLinks = document.querySelectorAll('.navbar a');
+    var menuBtn = document.querySelector('#menu-btn');
+    var navClose = document.querySelector('#nav-close');
+    var navbar = document.querySelector('.navbar');
+
+    menuBtn.addEventListener('click', () => {
+        navbar.classList.add('active');
+    });
+
+    navClose.addEventListener('click', () => {
+        navbar.classList.remove('active');
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('active');
+        });
+    });
+
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    };
+
+    var searchForm = document.querySelector('.search-form');
+    var searchBtn = document.querySelector('#search-btn');
+    var closeSearch = document.querySelector('#close-search');
+
+    searchBtn.addEventListener('click', () => {
+        searchForm.classList.add('active');
+    });
+
+    closeSearch.addEventListener('click', () => {
+        searchForm.classList.remove('active');
+    });</script>
 </body>
 </html>
