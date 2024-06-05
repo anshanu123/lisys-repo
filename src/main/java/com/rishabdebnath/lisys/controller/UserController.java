@@ -1,20 +1,19 @@
 package com.rishabdebnath.lisys.controller;
 
-
 import com.rishabdebnath.lisys.service.UserService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
-@SessionAttributes({"login"})
 public class UserController {
 
     @Autowired
@@ -25,14 +24,21 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
+
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password, Model model) {
         if (userService.validateUser(username, password)) {
-            return "redirect:/admin";
-        } else {
-            model.addAttribute("error", "Invalid username or password");
-            return "login";
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            if (auth.isAuthenticated()) {
+                return "redirect:/admin";
+            }
         }
+        model.addAttribute("error", "Invalid username or password");
+        return "login";
     }
 
     @GetMapping("/admin")
@@ -41,15 +47,11 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpServletRequest req, ModelMap mp) {
+    public String logout(HttpServletRequest req) {
         HttpSession session = req.getSession(false);
-        mp.clear();
-
         if (session != null) {
             session.invalidate();
         }
-
-        return "redirect:/";
+        return "redirect:/login?logout";
     }
-
 }

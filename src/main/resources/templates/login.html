@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link th:href="@{css/login.css}" rel="stylesheet"/>
+    <link th:href="@{/css/login.css}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -17,9 +17,8 @@
             <div class="login-title">
                 ADMIN PANEL
             </div>
-
             <div class="login-form">
-                <form action="/login" method="post">
+                <form th:action="@{/login}" method="post">
                     <div class="form-group">
                         <label class="form-control-label">USERNAME</label>
                         <input type="text" class="form-control" name="username" required>
@@ -28,10 +27,9 @@
                         <label class="form-control-label">PASSWORD</label>
                         <input type="password" class="form-control" name="password" required>
                     </div>
-
                     <div class="loginbttm">
                         <div class="login-text">
-                            <p th:text="${error}" style="color: red"></p>
+                            <p th:text="${param.error}" style="color: red"></p>
                         </div>
                         <div class="login-button">
                             <button type="submit" class="btn btn-outline-primary">LOGIN</button>
