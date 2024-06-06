@@ -1,5 +1,6 @@
 package com.rishabdebnath.lisys.service;
 
+import com.rishabdebnath.lisys.controller.InvalidItineraryDescriptionException;
 import com.rishabdebnath.lisys.model.Event;
 import com.rishabdebnath.lisys.model.Trek;
 import com.rishabdebnath.lisys.repository.EventRepository;
@@ -24,8 +25,10 @@ public class TrekService {
     }
 
     public Trek saveTrek(Trek trek) {
+        validateTrek(trek);
         return trekRepository.save(trek);
     }
+
 
     public List<Event> getAllEvents() {
         return eventRepository.findAll();
@@ -37,6 +40,7 @@ public class TrekService {
     }
 
     public void updateTrek(Trek trek) {
+        validateTrek(trek);
         trekRepository.save(trek);
     }
 
@@ -48,4 +52,13 @@ public class TrekService {
     public void deleteTrek(Long id) {
         trekRepository.deleteById(id);
     }
+
+    private void validateTrek(Trek trek) {
+        String description = trek.getItineraryDescription();
+        System.out.println("Validating itineraryDescription: " + description);
+        if (description == null || !description.matches("^[a-zA-Z0-9 ,.:\\[\\]()\\-\\n/]+$")) {
+            throw new InvalidItineraryDescriptionException("Invalid characters in itineraryDescription. Allowed characters are: letters, numbers, spaces, and punctuation (,.:-[]()\\n/).");
+        }
+    }
+
 }

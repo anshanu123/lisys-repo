@@ -103,7 +103,7 @@
         .header .logo {
             margin-right: auto;
             font-size: 2.5rem;
-            color: var(--yellow);
+            color: var(--black);
             font-weight: bolder;
         }
 
@@ -338,103 +338,143 @@
             }
         }
 
-        /* Custom styles for the event container */
+        /* Custom styles for the container */
         .container {
             padding: 2rem;
-            border: var(--border);
-            background-color: var(--light-bg);
+            border: 1px solid yellow;
+            background-color: white;
             box-shadow: var(--box-shadow);
             border-radius: 1rem;
-            margin: 10rem auto 2rem auto; /* Added margin-top */
+            margin: 13rem auto 2rem auto;
             max-width: 90%;
         }
 
+        /* Image styling */
         .container img {
-            width: 30%;
+            width: 100%;
             height: auto;
-            max-height: 550px; /* Set a maximum height for the image */
-            border-radius: 5rem;
-            margin-bottom: 7.5rem;
+            max-height: 500px;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
         }
 
+        /* Card styling to enable flexbox layout */
+        .card {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem; /* Adjusted spacing between box1 and box2 */
+        }
+
+        /* Box1 and Box2 styling */
+        .card .box1,
+        .card .box2 {
+            flex: 1;
+        }
+
+        /* Aligning date and location inline */
+        .event-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* Space between date and location */
+        }
+
+        .event-info p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* Space between label and value */
+        }
+
+        /* Paragraph styling */
         .container p {
             font-size: 1.6rem;
             color: var(--black);
             margin-bottom: 1rem;
         }
 
-        .container .event-date {
-            font-size: 1.8rem;
-            font-weight: 500;
-            color: var(--green);
-            margin-bottom: 1rem;
-        }
-
-        .container .location {
-            font-size: 1.8rem;
-            font-weight: 500;
-            color: var(--yellow);
-            margin-bottom: 1rem;
-        }
-
-        .container .event-description {
-            font-size: 1.6rem;
+        /* Event date and location label styling */
+        .event-date, .location, h2 {
+            font-size: 2rem;
+            font-weight: bold;
             color: var(--black);
-            margin-bottom: 2rem;
+            text-shadow: 0.2rem 0.2rem var(--yellow);
         }
 
+        /* Event date, location, and description value styling */
+        .event-date-value, .location-value, .event-description {
+            font-size: 1.6rem;
+            font-weight: normal;
+            color: var(--black);
+            text-shadow: none;
+        }
+
+        h1 {
+            font-size: 4rem;
+            text-align: center;
+            font-weight: bold;
+            color: var(--black);
+            text-shadow: 0.2rem 0.2rem var(--yellow);
+        }
+
+        /* Itinerary styling */
         .container .itinerary {
             font-size: 1.6rem;
             color: var(--black);
             margin-bottom: 2rem;
-            border-top: var(--border);
-            padding-top: 1rem;
         }
 
-
-
+        /* Media Queries for responsive design */
         @media (max-width: 768px) {
             .container {
-                margin: 10rem auto 2rem auto;
+                margin: 5rem auto 2rem auto;
             }
             .container p {
                 font-size: 1.5rem;
             }
             .container .event-date,
-            .container .location {
-                font-size: 2rem;
+            .container .location,
+            .container .event-description {
+                font-size: 1.8rem;
             }
             .container .event-description,
             .container .itinerary {
-                font-size: 2rem;
+                font-size: 1.6rem;
+            }
+
+            /* Stacking the boxes vertically on smaller screens */
+            .card {
+                flex-direction: column;
             }
         }
 
         @media (max-width: 450px) {
             .container {
-                margin: 10rem auto 2rem auto;
+                margin: 5rem auto 2rem auto;
             }
             .container p {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             .container .event-date,
-            .container .location {
-                font-size: 1.8rem;
+            .container .location,
+            .container .event-description {
+                font-size: 1.6rem;
             }
             .container .event-description,
             .container .itinerary {
-                font-size: 2rem;
+                font-size: 1.4rem;
+            }
+
+            /* Ensure the boxes stack vertically on the smallest screens */
+            .card {
+                flex-direction: column;
             }
         }
 
-
-
     </style>
 </head>
-<body style="background: url('images/background-pattern.jpg') repeat; background-size: cover; background-color: #eee;">
+<body style="background: url('@{/images/background-pattern.jpg}') repeat; background-size: cover; background-color: #eee;">
 <!-- Header -->
 <header class="header">
-    <a href="#" class="logo"><img src="image\logo\CampIndia.jpeg" alt="Camp India" class="small-logo"></a>
+    <a href="#" class="logo"><img th:src="@{/images/logo/CampIndia.jpeg}" alt="Camp India" class="small-logo"></a>
 
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
@@ -466,15 +506,36 @@
 <!--content-->
 <div class="container">
     <img th:src="@{'/uploads/' + ${trek.image}}" alt="Event Image">
-    <p class="event-date">Date: <span th:text="${#dates.format(trek.eventDate, 'dd MMMM yyyy')}">Event Date</span></p>
-    <p class="location">Location: <span th:text="${trek.location}">Location</span></p>
-    <p class="event-description" th:text="${trek.eventDescription}">Event Description</p>
-    <p class="itinerary" th:text="${trek.itineraryDescription}">Itinerary</p>
+    <div class="card">
+        <div class="box1">
+            <div class="event-info">
+                <p class="event-date">Date: <span class="event-date-value" th:text="${#dates.format(trek.eventDate, 'dd MMMM yyyy')}">Event Date</span></p>
+                <p class="location">Location: <span class="location-value" th:text="${trek.location}">Location</span></p>
+            </div>
+            <div class="description">
+                <h2>Event Description:</h2>
+                <p class="event-description" th:text="${trek.eventDescription}"></p>
+            </div>
+        </div>
+        <div class="box2">
+            <h1 class="itinerary">Itinerary: </h1>
+            <p th:text="${trek.itineraryDescription}"></p>
+            <p class="itinerary" th:text="${trek.itineraryTwo}">Itinerary 2</p>
+            <p class="itinerary" th:text="${trek.itineraryThree}">Itinerary 3</p>
+            <p class="itinerary" th:text="${trek.itineraryFour}">Itinerary 4</p>
+            <p class="itinerary" th:text="${trek.itineraryFive}">Itinerary 5</p>
+            <p class="itinerary" th:text="${trek.itinerarySix}">Itinerary 6</p>
+            <p class="itinerary" th:text="${trek.itinerarySeven}">Itinerary 7</p>
+            <p class="itinerary" th:text="${trek.itineraryEight}">Itinerary 8</p>
+            <p class="itinerary" th:text="${trek.itineraryNine}">Itinerary 9</p>
+            <p class="itinerary" th:text="${trek.itineraryTen}">Itinerary 10</p>
+        </div>
+    </div>
 </div>
 <!--content-->
 
 <!-- Footer Section Starts -->
-<section class="footer" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/footerImage.jpg') no-repeat; background-size: cover; background-position: center; background-attachment: fixed;">
+<section class="footer" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@{/images/footerImage.jpg}') no-repeat; background-size: cover; background-position: center; background-attachment: fixed;">
     <div class="box-container">
         <div class="box">
             <h3>Quick Links</h3>
@@ -543,6 +604,7 @@
 
     closeSearch.addEventListener('click', () => {
         searchForm.classList.remove('active');
-    });</script>
+    });
+</script>
 </body>
 </html>

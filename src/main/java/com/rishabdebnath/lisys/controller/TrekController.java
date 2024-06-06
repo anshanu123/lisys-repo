@@ -2,9 +2,10 @@ package com.rishabdebnath.lisys.controller;
 
 import com.rishabdebnath.lisys.model.Event;
 import com.rishabdebnath.lisys.model.Trek;
-import com.rishabdebnath.lisys.service.EventService;
 import com.rishabdebnath.lisys.service.TrekService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -91,6 +92,11 @@ public class TrekController {
     public String deleteTrek(@PathVariable Long id) {
         trekService.deleteTrek(id);
         return "redirect:/trekList";
+    }
+
+    @ExceptionHandler(InvalidItineraryDescriptionException.class)
+    public ResponseEntity<String> handleInvalidItineraryDescription(InvalidItineraryDescriptionException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
 }

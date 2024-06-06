@@ -26,7 +26,7 @@ public class Event {
     @NotEmpty
     @NotBlank
     @Pattern(regexp = "^[a-zA-Z0-9 ]+$")
-    @Column(length = 300, nullable = false, columnDefinition = "TEXT")
+    @Column(length = 1000, nullable = false, columnDefinition = "TEXT")
     private String eventDescription;
 
     @Column(nullable = true, length = 200)

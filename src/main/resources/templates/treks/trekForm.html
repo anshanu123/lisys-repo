@@ -28,6 +28,9 @@
             border-color: #d39e00;
             color: #ffffff;
         }
+        .form-group {
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body class="sb-nav-fixed" style="background: url('images/background-pattern.jpg') repeat; background-size: cover; background-color: #eee;">
@@ -39,54 +42,83 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <div class="container w-60 mt-5 mb-4">
-                    <div class="row">
-                        <div class="card border-0 shadow">
-                            <div class="card-header p-3">
-                                <h5 class="text-center">Trek Form</h5>
-                            </div>
-                            <div class="card-body p-3">
-                                <form method="post" enctype="multipart/form-data" th:object="${trek}" th:action="@{/save}" class="mt-3">
-                                    <div class="row mb-3">
-                                        <div class="col">
+                <div class="container w-75 mt-5 mb-4">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <div class="card border-0 shadow">
+                                <div class="card-header p-3">
+                                    <h5 class="text-center">Trek Form</h5>
+                                </div>
+                                <div class="card-body p-4">
+                                    <form method="post" enctype="multipart/form-data" th:object="${trek}" th:action="@{/save}" class="mt-3">
+                                        <div class="form-group">
                                             <label for="eventId" class="form-label">Event</label>
                                             <select th:field="*{eventId}" class="form-control" id="eventId">
                                                 <option th:each="event : ${events}" th:value="${event.eventId}" th:text="${event.eventName}"></option>
                                             </select>
                                         </div>
-                                        <div class="col">
+                                        <div class="form-group">
                                             <label for="eventDescription" class="form-label">Event Description</label>
                                             <input type="text" th:field="*{eventDescription}" class="form-control" id="eventDescription"/>
                                             <small class="form-text text-muted">Only alphanumeric characters and spaces are allowed.</small>
                                         </div>
-                                        <div class="col">
-                                            <label for="itineraryDescription" class="form-label">Event Description</label>
+                                        <div class="form-group">
+                                            <label for="itineraryDescription" class="form-label">Itinerary Description</label>
                                             <input type="text" th:field="*{itineraryDescription}" class="form-control" id="itineraryDescription"/>
-                                            <small class="form-text text-muted">Only alphanumeric characters and spaces are allowed.</small>
                                         </div>
-                                        <div class="col">
+                                        <div class="form-group">
+                                            <label for="itineraryTwo" class="form-label">Itinerary Description 2</label>
+                                            <input type="text" th:field="*{itineraryTwo}" class="form-control" id="itineraryTwo"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="itineraryThree" class="form-label">Itinerary Description 3</label>
+                                            <input type="text" th:field="*{itineraryThree}" class="form-control" id="itineraryThree"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="itineraryFour" class="form-label">Itinerary Description 4</label>
+                                            <input type="text" th:field="*{itineraryFour}" class="form-control" id="itineraryFour"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="itineraryFive" class="form-label">Itinerary Description 5</label>
+                                            <input type="text" th:field="*{itineraryFive}" class="form-control" id="itineraryFive"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="itinerarySix" class="form-label">Itinerary Description 6</label>
+                                            <input type="text" th:field="*{itinerarySix}" class="form-control" id="itinerarySix"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="itinerarySeven" class="form-label">Itinerary Description 7</label>
+                                            <input type="text" th:field="*{itinerarySeven}" class="form-control" id="itinerarySeven"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="itineraryEight" class="form-label">Itinerary Description 8</label>
+                                            <input type="text" th:field="*{itineraryEight}" class="form-control" id="itineraryEight"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="itineraryNine" class="form-label">Itinerary Description 9</label>
+                                            <input type="text" th:field="*{itineraryNine}" class="form-control" id="itineraryNine"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="itineraryTen" class="form-label">Itinerary Description 10</label>
+                                            <input type="text" th:field="*{itineraryTen}" class="form-control" id="itineraryTen"/>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="file" class="form-label">Image</label>
                                             <input type="file" name="file" class="form-control" id="file"/>
                                         </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <label for="eventDate" class="form-label">Date</label>
-                                        <input type="date" th:field="*{eventDate}" id="eventDate" class="form-control">
-                                    </div>
-                                    <div class="col mb-3">
-                                        <label for="location" class="form-label">Location</label>
-                                        <input type="text" th:field="*{location}" class="form-control" id="location"/>
-                                    </div>
-                                    <div class="card-footer bg-light">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-md-6 offset-md-5">
-                                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                                                </div>
-                                            </div>
+                                        <div class="form-group">
+                                            <label for="eventDate" class="form-label">Date</label>
+                                            <input type="date" th:field="*{eventDate}" id="eventDate" class="form-control">
                                         </div>
-                                    </div>
-                                </form>
+                                        <div class="form-group">
+                                            <label for="location" class="form-label">Location</label>
+                                            <input type="text" th:field="*{location}" class="form-control" id="location"/>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

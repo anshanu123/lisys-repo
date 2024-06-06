@@ -65,6 +65,56 @@
                                                                 <i class="fas fa-id-badge"></i>
                                                                 <span th:text="${trek.eventId}">Event ID</span>
                                                             </p>
+                                                            <div th:if="${trek.itineraryDescription}">
+                                                                <p class="card-text">
+                                                                    <i class="fas fa-list"></i> <span th:text="${trek.itineraryDescription}">Itinerary Description 1</span>
+                                                                </p>
+                                                            </div>
+                                                            <div th:if="${trek.itineraryTwo}">
+                                                                <p class="card-text">
+                                                                    <i class="fas fa-list"></i> <span th:text="${trek.itineraryTwo}">Itinerary Description 2</span>
+                                                                </p>
+                                                            </div>
+                                                            <div th:if="${trek.itineraryThree}">
+                                                                <p class="card-text">
+                                                                    <i class="fas fa-list"></i> <span th:text="${trek.itineraryThree}">Itinerary Description 3</span>
+                                                                </p>
+                                                            </div>
+                                                            <div th:if="${trek.itineraryFour}">
+                                                                <p class="card-text">
+                                                                    <i class="fas fa-list"></i> <span th:text="${trek.itineraryFour}">Itinerary Description 4</span>
+                                                                </p>
+                                                            </div>
+                                                            <div th:if="${trek.itineraryFive}">
+                                                                <p class="card-text">
+                                                                    <i class="fas fa-list"></i> <span th:text="${trek.itineraryFive}">Itinerary Description 5</span>
+                                                                </p>
+                                                            </div>
+                                                            <div th:if="${trek.itinerarySix}">
+                                                                <p class="card-text">
+                                                                    <i class="fas fa-list"></i> <span th:text="${trek.itinerarySix}">Itinerary Description 6</span>
+                                                                </p>
+                                                            </div>
+                                                            <div th:if="${trek.itinerarySeven}">
+                                                                <p class="card-text">
+                                                                    <i class="fas fa-list"></i> <span th:text="${trek.itinerarySeven}">Itinerary Description 7</span>
+                                                                </p>
+                                                            </div>
+                                                            <div th:if="${trek.itineraryEight}">
+                                                                <p class="card-text">
+                                                                    <i class="fas fa-list"></i> <span th:text="${trek.itineraryEight}">Itinerary Description 8</span>
+                                                                </p>
+                                                            </div>
+                                                            <div th:if="${trek.itineraryNine}">
+                                                                <p class="card-text">
+                                                                    <i class="fas fa-list"></i> <span th:text="${trek.itineraryNine}">Itinerary Description 9</span>
+                                                                </p>
+                                                            </div>
+                                                            <div th:if="${trek.itineraryTen}">
+                                                                <p class="card-text">
+                                                                    <i class="fas fa-list"></i> <span th:text="${trek.itineraryTen}">Itinerary Description 10</span>
+                                                                </p>
+                                                            </div>
                                                             <a th:href="@{/editTrek/{id}(id=${trek.id})}" class="btn btn-primary">Edit</a>
                                                             <a th:href="@{/deleteTrek/{id}(id=${trek.id})}" class="btn btn-danger">Delete</a>
                                                         </div>

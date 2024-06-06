@@ -8,7 +8,6 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -24,9 +23,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authz) -> authz
-                        .requestMatchers("/login", "/logout", "/css/**", "/js/**","/", "/home", "/images/**", "/Bootstrapv5.3/**", "/aboutUs",
+                        .requestMatchers("/login", "/logout", "/css/**", "/assets/**", "/js/**","/", "/home", "/images/**", "/Bootstrapv5.3/**", "/aboutUs",
                                 "/treks", "/services", "/heritage", "/food", "/hiking", "/study", "/camping", "/stargazing", "/corporate",
-                                "/gearOnRent", "/termsAndCondition", "/uploads/**").permitAll()
+                                "/gearOnRent", "/termsAndCondition", "/uploads/**", "/trek/{eventId}").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
