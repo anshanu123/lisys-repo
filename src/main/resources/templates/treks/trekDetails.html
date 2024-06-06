@@ -347,15 +347,20 @@
             border-radius: 1rem;
             margin: 13rem auto 2rem auto;
             max-width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         /* Image styling */
         .container img {
-            width: 100%;
+            width: 50%;
             height: auto;
             max-height: 500px;
             border-radius: 1rem;
             margin-bottom: 1.5rem;
+
         }
 
         /* Card styling to enable flexbox layout */
@@ -529,6 +534,16 @@
             <p class="itinerary" th:text="${trek.itineraryEight}">Itinerary 8</p>
             <p class="itinerary" th:text="${trek.itineraryNine}">Itinerary 9</p>
             <p class="itinerary" th:text="${trek.itineraryTen}">Itinerary 10</p>
+            <p class="itinerary" th:text="${trek.itineraryEleven}">Itinerary 11</p>
+            <p class="itinerary" th:text="${trek.itineraryTwelve}">Itinerary 12</p>
+            <p class="itinerary" th:text="${trek.itineraryThirteen}">Itinerary 13</p>
+            <p class="itinerary" th:text="${trek.itineraryFourteen}">Itinerary 14</p>
+            <p class="itinerary" th:text="${trek.itineraryFifteen}">Itinerary 15</p>
+            <p class="itinerary" th:text="${trek.itinerarySixteen}">Itinerary 16</p>
+            <p class="itinerary" th:text="${trek.itinerarySeventeen}">Itinerary 17</p>
+            <p class="itinerary" th:text="${trek.itineraryEighteen}">Itinerary 18</p>
+            <p class="itinerary" th:text="${trek.itineraryNineteen}">Itinerary 19</p>
+            <p class="itinerary" th:text="${trek.itineraryTwenty}">Itinerary 20</p>
         </div>
     </div>
 </div>

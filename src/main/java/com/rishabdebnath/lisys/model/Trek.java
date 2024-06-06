@@ -69,6 +69,36 @@ public class Trek {
     @Column(length = 500, nullable = true, columnDefinition = "TEXT")
     private String itineraryTen;
 
+    @Column(length = 500, nullable = true, columnDefinition = "TEXT")
+    private String itineraryEleven;
+
+    @Column(length = 500, nullable = true, columnDefinition = "TEXT")
+    private String itineraryTwelve;
+
+    @Column(length = 500, nullable = true, columnDefinition = "TEXT")
+    private String itineraryThirteen;
+
+    @Column(length = 500, nullable = true, columnDefinition = "TEXT")
+    private String itineraryFourteen;
+
+    @Column(length = 500, nullable = true, columnDefinition = "TEXT")
+    private String itineraryFifteen;
+
+    @Column(length = 500, nullable = true, columnDefinition = "TEXT")
+    private String itinerarySixteen;
+
+    @Column(length = 500, nullable = true, columnDefinition = "TEXT")
+    private String itinerarySeventeen;
+
+    @Column(length = 500, nullable = true, columnDefinition = "TEXT")
+    private String itineraryEighteen;
+
+    @Column(length = 500, nullable = true, columnDefinition = "TEXT")
+    private String itineraryNineteen;
+
+    @Column(length = 500, nullable = true, columnDefinition = "TEXT")
+    private String itineraryTwenty;
+
     @Column(nullable = true)
     private String image;
 
@@ -86,7 +116,7 @@ public class Trek {
     public Trek() {
     }
 
-    public Trek(Long id, Long eventId, String eventDescription, String itineraryDescription, String itineraryTwo, String itineraryThree, String itineraryFour, String itineraryFive, String itinerarySix, String itinerarySeven, String itineraryEight, String itineraryNine, String image, String itineraryTen, Date eventDate, String location) {
+    public Trek(Long id, Long eventId, String eventDescription, String itineraryDescription, String itineraryTwo, String itineraryThree, String itineraryFour, String itineraryFive, String itinerarySix, String itinerarySeven, String itineraryEight, String itineraryNine, String itineraryTen, String itineraryEleven, String itineraryTwelve, String itineraryThirteen, String itineraryFourteen, String itineraryFifteen, String itinerarySixteen, String itinerarySeventeen, String itineraryEighteen, String itineraryNineteen, String itineraryTwenty, String image, Date eventDate, String location) {
         this.id = id;
         this.eventId = eventId;
         this.eventDescription = eventDescription;
@@ -99,8 +129,18 @@ public class Trek {
         this.itinerarySeven = itinerarySeven;
         this.itineraryEight = itineraryEight;
         this.itineraryNine = itineraryNine;
-        this.image = image;
         this.itineraryTen = itineraryTen;
+        this.itineraryEleven = itineraryEleven;
+        this.itineraryTwelve = itineraryTwelve;
+        this.itineraryThirteen = itineraryThirteen;
+        this.itineraryFourteen = itineraryFourteen;
+        this.itineraryFifteen = itineraryFifteen;
+        this.itinerarySixteen = itinerarySixteen;
+        this.itinerarySeventeen = itinerarySeventeen;
+        this.itineraryEighteen = itineraryEighteen;
+        this.itineraryNineteen = itineraryNineteen;
+        this.itineraryTwenty = itineraryTwenty;
+        this.image = image;
         this.eventDate = eventDate;
         this.location = location;
     }
@@ -129,12 +169,12 @@ public class Trek {
         this.eventDescription = eventDescription;
     }
 
-    public String getItineraryThree() {
-        return itineraryThree;
+    public String getItineraryDescription() {
+        return itineraryDescription;
     }
 
-    public void setItineraryThree(String itineraryThree) {
-        this.itineraryThree = itineraryThree;
+    public void setItineraryDescription(String itineraryDescription) {
+        this.itineraryDescription = itineraryDescription;
     }
 
     public String getItineraryTwo() {
@@ -145,12 +185,12 @@ public class Trek {
         this.itineraryTwo = itineraryTwo;
     }
 
-    public String getItineraryDescription() {
-        return itineraryDescription;
+    public String getItineraryThree() {
+        return itineraryThree;
     }
 
-    public void setItineraryDescription(String itineraryDescription) {
-        this.itineraryDescription = itineraryDescription;
+    public void setItineraryThree(String itineraryThree) {
+        this.itineraryThree = itineraryThree;
     }
 
     public String getItineraryFour() {
@@ -207,6 +247,86 @@ public class Trek {
 
     public void setItineraryTen(String itineraryTen) {
         this.itineraryTen = itineraryTen;
+    }
+
+    public String getItineraryEleven() {
+        return itineraryEleven;
+    }
+
+    public void setItineraryEleven(String itineraryEleven) {
+        this.itineraryEleven = itineraryEleven;
+    }
+
+    public String getItineraryTwelve() {
+        return itineraryTwelve;
+    }
+
+    public void setItineraryTwelve(String itineraryTwelve) {
+        this.itineraryTwelve = itineraryTwelve;
+    }
+
+    public String getItineraryThirteen() {
+        return itineraryThirteen;
+    }
+
+    public void setItineraryThirteen(String itineraryThirteen) {
+        this.itineraryThirteen = itineraryThirteen;
+    }
+
+    public String getItineraryFourteen() {
+        return itineraryFourteen;
+    }
+
+    public void setItineraryFourteen(String itineraryFourteen) {
+        this.itineraryFourteen = itineraryFourteen;
+    }
+
+    public String getItineraryFifteen() {
+        return itineraryFifteen;
+    }
+
+    public void setItineraryFifteen(String itineraryFifteen) {
+        this.itineraryFifteen = itineraryFifteen;
+    }
+
+    public String getItinerarySixteen() {
+        return itinerarySixteen;
+    }
+
+    public void setItinerarySixteen(String itinerarySixteen) {
+        this.itinerarySixteen = itinerarySixteen;
+    }
+
+    public String getItinerarySeventeen() {
+        return itinerarySeventeen;
+    }
+
+    public void setItinerarySeventeen(String itinerarySeventeen) {
+        this.itinerarySeventeen = itinerarySeventeen;
+    }
+
+    public String getItineraryEighteen() {
+        return itineraryEighteen;
+    }
+
+    public void setItineraryEighteen(String itineraryEighteen) {
+        this.itineraryEighteen = itineraryEighteen;
+    }
+
+    public String getItineraryNineteen() {
+        return itineraryNineteen;
+    }
+
+    public void setItineraryNineteen(String itineraryNineteen) {
+        this.itineraryNineteen = itineraryNineteen;
+    }
+
+    public String getItineraryTwenty() {
+        return itineraryTwenty;
+    }
+
+    public void setItineraryTwenty(String itineraryTwenty) {
+        this.itineraryTwenty = itineraryTwenty;
     }
 
     public String getImage() {
