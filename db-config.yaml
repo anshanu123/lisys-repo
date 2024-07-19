@@ -1,0 +1,14 @@
+#apiVersion : v1
+#kind : ConfigMap
+#metadata:
+#  name : db-config
+#data:
+#  host : mysql
+#  dbName: javatechie
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+data:
+  lisys: mydatabase
